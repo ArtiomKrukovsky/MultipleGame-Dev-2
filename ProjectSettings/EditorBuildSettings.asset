@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 70ab45478cf2f0140945ac6e785d0249
   - enabled: 1
+    path: Assets/Scenes/BelarusMap.unity
+    guid: 76096995a310c67448ab7b9b9de820c8
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

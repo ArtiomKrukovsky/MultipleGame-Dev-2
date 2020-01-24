@@ -3,12 +3,14 @@ using UnityEngine.UI;
 
 public class LobbyPopups : MonoBehaviour
 {
-    public GameObject createLobbyPopup;
+    public static GameObject createLobbyPopup;
 
     private Text foundErrorTextComponent;
 
-    public void ViewCreateLobbyPopup()
+    public static void ViewCreateLobbyPopup(GameObject _createLobbyPopup = null)
     {
+        createLobbyPopup = createLobbyPopup ?? _createLobbyPopup;
+
         if (createLobbyPopup == null)
         {
             return;
