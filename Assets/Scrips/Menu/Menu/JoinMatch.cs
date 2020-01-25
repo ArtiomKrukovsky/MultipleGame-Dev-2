@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -50,14 +48,6 @@ public class JoinMatch : MonoBehaviour
             {
                 Debug.LogError($"Error, something went wrong: { ex.Message }");
             }
-        }
-    }
-
-    void OnMouseOver()
-    {
-        if (Input.GetMouseButton(0))
-        {
-
         }
     }
 

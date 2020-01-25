@@ -7,9 +7,9 @@ public class LobbyPopups : MonoBehaviour
 
     private Text foundErrorTextComponent;
 
-    public static void ViewCreateLobbyPopup(GameObject _createLobbyPopup = null)
+    public static void ViewCreateLobbyPopup(GameObject _createLobbyPopup)
     {
-        createLobbyPopup = createLobbyPopup ?? _createLobbyPopup;
+        createLobbyPopup = _createLobbyPopup;
 
         if (createLobbyPopup == null)
         {

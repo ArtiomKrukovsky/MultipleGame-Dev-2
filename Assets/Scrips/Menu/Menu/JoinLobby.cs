@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Linq;
-using Boo.Lang;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
 public class JoinLobby : MonoBehaviour
 {
@@ -21,34 +18,6 @@ public class JoinLobby : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log($"Error, something went wrong: { e.Message }");
-        }
-    }
-
-
-    public void JoinMatch(string matchName)
-    {
-        try
-        {
-            if (string.IsNullOrEmpty(matchName))
-            {
-                return;
-            }
-
-            foreach (var match in manager.matches)
-            {
-                if (match.name == matchName)
-                {
-                    SceneManager.LoadScene("GameScene");
-                    manager.matchName = match.name;
-                    manager.matchSize = (uint)match.currentSize;
-                    manager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, manager.OnMatchJoined);
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.Log($"Error, something went wrong: { ex.Message }");
-            SceneManager.LoadScene("Menu");
         }
     }
 
