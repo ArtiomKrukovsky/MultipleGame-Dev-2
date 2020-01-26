@@ -497,7 +497,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0f7e34bd0eeb488469d6c6d4131521c2,
         type: 3}
       propertyPath: m_Name
-      value: holmskie
+      value: GameScene
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 0f7e34bd0eeb488469d6c6d4131521c2,
         type: 3}

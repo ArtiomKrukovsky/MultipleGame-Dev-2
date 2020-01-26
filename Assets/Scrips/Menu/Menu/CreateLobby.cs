@@ -39,7 +39,15 @@ public class CreateLobby : MonoBehaviour
                 manager.StartMatchMaker();
             }
 
-            SceneManager.LoadScene("GameScene");
+            var mapName = PlayerPrefs.GetString("MapName");
+            PlayerPrefs.DeleteKey("MapName");
+
+            if (string.IsNullOrEmpty(mapName))
+            {
+                throw new Exception("Map in null");
+            }
+
+            SceneManager.LoadScene(mapName);
             manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
         }
         catch(Exception e)

@@ -10,6 +10,12 @@ public class BuildingProcessor : MonoBehaviour
 
     private void OnMouseDown()
     {
+
+        var mapName = transform.name;
+
+        PlayerPrefs.DeleteKey("MapName");
+        PlayerPrefs.SetString("MapName", mapName);
+
         LobbyPopups.ViewCreateLobbyPopup(createLobbyPopup);
     }
 

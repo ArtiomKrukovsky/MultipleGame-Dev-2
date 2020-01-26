@@ -22,6 +22,7 @@ public class LobbyPopups : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.DeleteKey("MapName");
             createLobbyPopup.SetActive(false);
         }
     }
@@ -35,6 +36,7 @@ public class LobbyPopups : MonoBehaviour
                 foundErrorTextComponent = foundErrorTextComponent ?? this.FindObjectByTag("Error message").GetComponent<Text>();
                 this.HideMessageError(foundErrorTextComponent);
                 createLobbyPopup.SetActive(false);
+                PlayerPrefs.DeleteKey("MapName");
             }
         }
         catch
