@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -10,6 +13,11 @@ public class CreateLobby : MonoBehaviour
     public InputField serverName;
 
     private Text foundErrorTextComponent;
+
+    string _connectionString = @"Data Source = SQL5041.site4now.net; 
+        User Id = DB_A50AD1_broadwood_admin;
+        Password = qwe123ZXC.;
+        Initial Catalog = DB_A50AD1_broadwood;";
 
     public void CreateServer()
     {
@@ -40,15 +48,47 @@ public class CreateLobby : MonoBehaviour
             }
 
             var mapName = PlayerPrefs.GetString("MapName");
-            PlayerPrefs.DeleteKey("MapName");
 
             if (string.IsNullOrEmpty(mapName))
             {
                 throw new Exception("Map in null");
             }
 
-            SceneManager.LoadScene(mapName);
-            manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
+            using (SqlConnection dbConnection = new SqlConnection(_connectionString))
+            {
+                dbConnection.Open();
+
+                string query = "SELECT * FROM Servers WHERE ServerName = @serverName;";
+                using (SqlCommand command = new SqlCommand(query, dbConnection))
+                {
+                    command.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
+
+                    using (DbDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            this.ShowMessageError("Server with this name is already exist", foundErrorTextComponent);
+                            return;
+                        }
+                    }
+                }
+
+                string insertQuery = "Insert into Servers (Id, ServerName, SceneName)"
+                               + " values (@id, @serverName, @sceneName) ";
+
+                using (SqlCommand insertCommand = new SqlCommand(insertQuery, dbConnection))
+                {
+                    insertCommand.Parameters.Add("@id", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
+                    insertCommand.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
+                    insertCommand.Parameters.Add("@sceneName", SqlDbType.NVarChar).Value = mapName;
+
+                    insertCommand.ExecuteNonQuery();
+                    Debug.Log("Success adding to database");
+
+                    SceneManager.LoadScene(mapName);
+                    manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
+                }
+            }
         }
         catch(Exception e)
         {
