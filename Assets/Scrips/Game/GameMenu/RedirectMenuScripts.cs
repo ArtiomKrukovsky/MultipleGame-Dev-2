@@ -77,6 +77,8 @@ public class RedirectMenuScripts : MonoBehaviour
 
                         Debug.Log("Success deleting from database");
                     }
+
+                    dbConnection.Close();
                 }
             }
 

@@ -42,6 +42,8 @@ public class CreateLobby : MonoBehaviour
                 return;
             }
 
+            manager.StopHost();
+
             if (manager.matchMaker == null)
             {
                 manager.StartMatchMaker();
@@ -88,6 +90,8 @@ public class CreateLobby : MonoBehaviour
                     SceneManager.LoadScene(mapName);
                     manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
                 }
+
+                dbConnection.Close();
             }
         }
         catch(Exception e)
