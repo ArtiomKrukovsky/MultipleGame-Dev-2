@@ -3,14 +3,13 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class JoinMatch : MonoBehaviour
+public class JoinMatch : MonoBehaviour, IPointerClickHandler
 {
-    public Text matchName;
-
     private GameObject network;
     private static NetworkManager manager;
 
@@ -35,26 +34,16 @@ public class JoinMatch : MonoBehaviour
         }
     }
 
-    
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0))
+        var textObjects = gameObject.GetComponentsInChildren<Transform>();
+        foreach (var obj in textObjects)
         {
-            try
+            if (obj.name == "MatchName")
             {
-                float timeSinceLastClick = Time.time - lastClickTime;
-
-                if (timeSinceLastClick <= DoubleClickTime)
-                {
-                    JoinToMatch(matchName.text);
-                    Debug.Log("User join to match!");
-                }
-
-                lastClickTime = Time.time;
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error, something went wrong: { ex.Message }");
+                var matchName = obj.GetComponent<Text>().text;
+                JoinToMatch(matchName);
+                Debug.Log("User join to match!");
             }
         }
     }
