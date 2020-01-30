@@ -36,16 +36,9 @@ public class JoinMatch : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        var textObjects = gameObject.GetComponentsInChildren<Transform>();
-        foreach (var obj in textObjects)
-        {
-            if (obj.name == "MatchName")
-            {
-                var matchName = obj.GetComponent<Text>().text;
-                JoinToMatch(matchName);
-                Debug.Log("User join to match!");
-            }
-        }
+        var matchName = this.GetComponentInChildren<Text>().text;
+        JoinToMatch(matchName);
+        Debug.Log("User join to match!");
     }
 
     private void JoinToMatch(string matchName)
