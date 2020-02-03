@@ -14,11 +14,6 @@ public class CreateLobby : MonoBehaviour
 
     private Text foundErrorTextComponent;
 
-    string _connectionString = @"Data Source = SQL5041.site4now.net; 
-        User Id = DB_A50AD1_broadwood_admin;
-        Password = qwe123ZXC.;
-        Initial Catalog = DB_A50AD1_broadwood;";
-
     public void CreateServer()
     {
         try
@@ -56,7 +51,7 @@ public class CreateLobby : MonoBehaviour
                 throw new Exception("Map in null");
             }
 
-            using (SqlConnection dbConnection = new SqlConnection(_connectionString))
+            using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
             {
                 dbConnection.Open();
 

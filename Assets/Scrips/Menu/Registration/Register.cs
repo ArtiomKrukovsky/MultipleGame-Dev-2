@@ -12,8 +12,6 @@ using UnityEngine.UI;
 
 public class Register : MonoBehaviour
 {
-    private string _connectionString;
-
     public InputField login;
 
     public InputField userName;
@@ -24,12 +22,7 @@ public class Register : MonoBehaviour
     {
         Debug.Log("Connecting to database...");
 
-        _connectionString = @"Data Source = SQL5041.site4now.net; 
-        User Id = DB_A50AD1_broadwood_admin;
-        Password = qwe123ZXC.;
-        Initial Catalog = DB_A50AD1_broadwood;";
-
-        using (SqlConnection dbConnection = new SqlConnection(_connectionString))
+        using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
         {
             try
             {

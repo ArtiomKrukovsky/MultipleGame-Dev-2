@@ -16,11 +16,6 @@ public class JoinMatch : MonoBehaviour, IPointerClickHandler
     private const float DoubleClickTime = .2f;
     private float lastClickTime;
 
-    private string _connectionString = @"Data Source = SQL5041.site4now.net; 
-        User Id = DB_A50AD1_broadwood_admin;
-        Password = qwe123ZXC.;
-        Initial Catalog = DB_A50AD1_broadwood;";
-
     void Start()
     {
         try
@@ -52,7 +47,7 @@ public class JoinMatch : MonoBehaviour, IPointerClickHandler
 
             string mapName = string.Empty;
 
-            using (SqlConnection dbConnection = new SqlConnection(_connectionString))
+            using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
             {
                 dbConnection.Open();
 
