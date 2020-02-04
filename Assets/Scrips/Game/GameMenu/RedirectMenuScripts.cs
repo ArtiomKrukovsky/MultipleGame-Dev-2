@@ -51,7 +51,7 @@ public class RedirectMenuScripts : MonoBehaviour
 
             foreach (var match in networkManager.matches)
             {
-                if (match.networkId == matchInfo.networkId && match.currentSize <= 1)
+                if (match.networkId == matchInfo.networkId)
                 {
                     serverNameToDelete = match.name;
                 }
@@ -59,22 +59,7 @@ public class RedirectMenuScripts : MonoBehaviour
 
             if (!string.IsNullOrEmpty(serverNameToDelete))
             {
-                using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
-                {
-                    dbConnection.Open();
-
-                    string deleteServerQuery = "DELETE FROM Servers WHERE ServerName = @nameToDelete;";
-
-                    using (SqlCommand command = new SqlCommand(deleteServerQuery, dbConnection))
-                    {
-                        command.Parameters.Add("@nameToDelete", SqlDbType.NVarChar).Value = serverNameToDelete;
-                        command.ExecuteNonQuery();
-
-                        Debug.Log("Success deleting from database");
-                    }
-
-                    dbConnection.Close();
-                }
+               PlayerPrefs.SetString("ServerToDisconnect", serverNameToDelete);
             }
 
             networkManager.StopHost();
