@@ -5,6 +5,10 @@ public class GameMenuScripts : MonoBehaviour
 {
     private GameObject gameMenuPopup;
 
+    void Start()
+    {
+        Cursor.visible = false;
+    }
     void Update()
     {
         try
@@ -20,11 +24,13 @@ public class GameMenuScripts : MonoBehaviour
 
                 if (gameMenuPopup.activeSelf == false)
                 {
+                    Cursor.visible = true;
                     gameObject.GetComponent<PlayerMotor>().enabled = false;
                     gameMenuPopup.SetActive(true);
                 }
                 else
                 {
+                    Cursor.visible = false;
                     gameObject.GetComponent<PlayerMotor>().enabled = true;
                     gameMenuPopup.SetActive(false);
                 }
