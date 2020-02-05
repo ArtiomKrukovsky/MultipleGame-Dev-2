@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 03dadd93cf30a46428d8357d1c6a0582
+timeCreated: 1579505492
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bolt01
+    100002: doski
+    100004: Kreplenie
+    100006: pCube16
+    100008: pCube17
+    100010: pCube18
+    100012: pCube19
+    100014: pCube20
+    100016: pCube21
+    100018: pCube22
+    100020: pCube23
+    100022: pCube24
+    100024: pCube25
+    100026: Poruchen01
+    100028: Poruchen02
+    100030: //RootNode
+    100032: Sphere100
+    100034: Sphere101
+    100036: Sphere102
+    100038: Sphere103
+    100040: Sphere96
+    100042: Sphere99
+    400000: Bolt01
+    400002: doski
+    400004: Kreplenie
+    400006: pCube16
+    400008: pCube17
+    400010: pCube18
+    400012: pCube19
+    400014: pCube20
+    400016: pCube21
+    400018: pCube22
+    400020: pCube23
+    400022: pCube24
+    400024: pCube25
+    400026: Poruchen01
+    400028: Poruchen02
+    400030: //RootNode
+    400032: Sphere100
+    400034: Sphere101
+    400036: Sphere102
+    400038: Sphere103
+    400040: Sphere96
+    400042: Sphere99
+    2300000: Bolt01
+    2300002: Kreplenie
+    2300004: pCube16
+    2300006: pCube17
+    2300008: pCube18
+    2300010: pCube19
+    2300012: pCube20
+    2300014: pCube21
+    2300016: pCube22
+    2300018: pCube23
+    2300020: pCube24
+    2300022: pCube25
+    2300024: Poruchen01
+    2300026: Poruchen02
+    2300028: Sphere100
+    2300030: Sphere101
+    2300032: Sphere102
+    2300034: Sphere103
+    2300036: Sphere96
+    2300038: Sphere99
+    3300000: Bolt01
+    3300002: Kreplenie
+    3300004: pCube16
+    3300006: pCube17
+    3300008: pCube18
+    3300010: pCube19
+    3300012: pCube20
+    3300014: pCube21
+    3300016: pCube22
+    3300018: pCube23
+    3300020: pCube24
+    3300022: pCube25
+    3300024: Poruchen01
+    3300026: Poruchen02
+    3300028: Sphere100
+    3300030: Sphere101
+    3300032: Sphere102
+    3300034: Sphere103
+    3300036: Sphere96
+    3300038: Sphere99
+    4300000: Poruchen01
+    4300002: Kreplenie
+    4300004: Poruchen02
+    4300006: pCube16
+    4300008: pCube17
+    4300010: pCube18
+    4300012: pCube19
+    4300014: pCube20
+    4300016: pCube21
+    4300018: pCube22
+    4300020: pCube23
+    4300022: pCube24
+    4300024: pCube25
+    4300026: Bolt01
+    4300028: Sphere96
+    4300030: Sphere99
+    4300032: Sphere100
+    4300034: Sphere101
+    4300036: Sphere102
+    4300038: Sphere103
+    6400000: Bolt01
+    6400002: Kreplenie
+    6400004: pCube16
+    6400006: pCube17
+    6400008: pCube18
+    6400010: pCube19
+    6400012: pCube20
+    6400014: pCube21
+    6400016: pCube22
+    6400018: pCube23
+    6400020: pCube24
+    6400022: pCube25
+    6400024: Poruchen01
+    6400026: Poruchen02
+    6400028: Sphere100
+    6400030: Sphere101
+    6400032: Sphere102
+    6400034: Sphere103
+    6400036: Sphere96
+    6400038: Sphere99
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
