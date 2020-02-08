@@ -30,3 +30,5 @@ ExportedObj/
 *.exe
 
 *.vs
+
+buildRelease/
