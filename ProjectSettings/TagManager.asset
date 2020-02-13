@@ -9,6 +9,9 @@ TagManager:
   - CreateLobbyPopup
   - SearchLine
   - GameMenu
+  - Question1
+  - CorrectAnswer
+  - IncorrectAnswer
   layers:
   - Default
   - TransparentFX
