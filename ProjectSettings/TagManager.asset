@@ -12,6 +12,7 @@ TagManager:
   - Question1
   - CorrectAnswer
   - IncorrectAnswer
+  - QuestionText
   layers:
   - Default
   - TransparentFX
