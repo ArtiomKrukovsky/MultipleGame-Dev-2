@@ -7,25 +7,39 @@ public class TriggerMotor : MonoBehaviour
 {
     public GameObject questionPanel;
     public GameObject masAnswers;
+
+    [SerializeField]
+    private List<bool> _questionActivate = new List<bool>();
+
+    private void Start()
+    {
+        for (int i = 0; i < 15; i++)
+        {
+            _questionActivate.Add(false);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        //можно вести переменную(кол-во игроков) чтобы квест был виден только 1 игроку
         if (other.tag == "Player")
         {
             Debug.Log("Question is visible");
             questionPanel.SetActive(true);
-            if (gameObject.name == "Trigger1")
+            for (int i = 0; i < _questionActivate.Count; i++)
             {
-                var question = GameObject.FindGameObjectWithTag("QuestionText");
-                question.GetComponent<Text>().text = "question 1 from db";
-
-                var answers = masAnswers.transform.Find("Question1");
-                foreach (Transform answer in answers)
+                if (gameObject.name == "Trigger" + (i + 1) && !_questionActivate[i + 1])
                 {
-                    answer.GetComponent<BoxCollider>().enabled = true;
+                    _questionActivate[0] = true;
+                    var question = GameObject.FindGameObjectWithTag("QuestionText");
+                    question.GetComponent<Text>().text = "question 1 from db";
+
+                    var answers = masAnswers.transform.Find("Question" + (i + 1));
+                    foreach (Transform answer in answers)
+                    {
+                        answer.GetComponent<BoxCollider>().enabled = true;
+                    }
                 }
             }
-            //gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 

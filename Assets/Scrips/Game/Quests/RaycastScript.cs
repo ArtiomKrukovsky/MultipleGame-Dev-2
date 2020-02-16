@@ -27,6 +27,8 @@ public class RaycastScript : MonoBehaviour
                     GameObject.Find("QuestionPanel").SetActive(false);
                     GameObject.Find("Question1").SetActive(false);
                 }
+
+                GameObject.Find("Trigger1").GetComponent<BoxCollider>().enabled = false;
             }
         }
     }
