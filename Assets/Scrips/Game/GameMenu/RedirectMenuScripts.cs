@@ -1,7 +1,4 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityEngine.SceneManagement;
@@ -41,13 +38,13 @@ public class RedirectMenuScripts : MonoBehaviour
             networkManager.matchMaker.DropConnection(matchInfo.networkId, matchInfo.nodeId, 0, networkManager.OnDropConnection);
             SceneManager.LoadScene("Menu");
 
-            var serverNameToDelete = "";
-
             if (networkManager.matches == null)
             {
                 Debug.Log("Matches is null");
                 return;
             }
+
+            var serverNameToDelete = "";
 
             foreach (var match in networkManager.matches)
             {
@@ -69,10 +66,5 @@ public class RedirectMenuScripts : MonoBehaviour
             networkManager.StopHost();
             SceneManager.LoadScene("Menu");
         }
-    }
-
-    private GameObject FindObjectByTag(string tag)
-    {
-        return GameObject.FindGameObjectWithTag(tag);
     }
 }

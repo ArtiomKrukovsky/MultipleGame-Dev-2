@@ -20,29 +20,26 @@ public class Register : MonoBehaviour
 
     public void RegisterUser()
     {
-        Debug.Log("Connecting to database...");
-
         using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
         {
             try
             {
-                Text foundErrorObject = FindObjectByTag("Error message");
+                Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
                 if (!login.text.Any() || !password.text.Any())
                 {
-                    ShowMessageError("Password or username not entered", foundErrorObject);
+                    BaseHelper.ShowMessageError("Password or username not entered", foundErrorObject);
                     Debug.LogWarning("Password or username not entered");
                     return;
                 }
 
                 if (!IsLoginValid(login.text) || !IsPasswordValid(password.text))
                 {
-                    ShowMessageError("This login or password is incorrect", foundErrorObject);
+                    BaseHelper.ShowMessageError("This login or password is incorrect", foundErrorObject);
                     Debug.LogWarning("This login or password is incorrect");
                     return;
                 }
 
                 dbConnection.Open();
-                Debug.Log("Connected to database.");
 
                 string selectLoginQuery = "SELECT Login FROM Users WHERE Login = @loginUserSelect;";
                 using (SqlCommand selectLoginCommand = new SqlCommand(selectLoginQuery, dbConnection))
@@ -52,7 +49,7 @@ public class Register : MonoBehaviour
                     {
                         if (reader.HasRows)
                         {
-                            ShowMessageError("User with this login is exist", foundErrorObject);
+                            BaseHelper.ShowMessageError("User with this login is exist", foundErrorObject);
                             Debug.LogWarning("User with this login is exist");
                             return;
                         }
@@ -63,53 +60,29 @@ public class Register : MonoBehaviour
                                + " values (@idUser, @loginUser, @nameUser, @passwordHash) ";
                 using (SqlCommand command = new SqlCommand(query, dbConnection))
                 {
-                    //===== Добавить параметр @Id =====
                     command.Parameters.Add("@idUser", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
-
-                    //===== Добавить параметр @login =====
                     command.Parameters.Add("@loginUser", SqlDbType.NVarChar).Value = login.text;
-
-                    //===== Добавить параметр @name =====
                     command.Parameters.Add("@nameUser", SqlDbType.NVarChar).Value = userName.text;
 
-                    //===== Добавить параметр @passwordHash =====
-                    var inputHash = HashPassword(password.text);
+                    var inputHash = AuthorizationHelper.HashPassword(password.text);
                     command.Parameters.Add("@passwordHash", SqlDbType.NVarChar).Value = inputHash;
 
-                    // Выполнить Command (Используется для delete, insert, update).
                     int rowCount = command.ExecuteNonQuery();
-                    Debug.Log("User added to database.");
-
                     SceneManager.LoadScene("Login");
-                    Debug.Log("Redirect to scene Login.");
 
                     ResetFields();
                 }
                 dbConnection.Close();
-                Debug.Log("Connection to database closed.");
             }
             catch (Exception ex)
             {
-                Text foundErrorObject = FindObjectByTag("Error message");
-                ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorObject);
+                Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
+                BaseHelper.ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorObject);
                 ResetFields();
                 dbConnection.Close();
                 Debug.LogWarning(ex.ToString());
             }
         }
-    }
-
-    private string HashPassword(string pswd)
-    {
-        var sha1 = SHA1.Create();
-        var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(pswd));
-        var hashString = new StringBuilder();
-        foreach (byte temp in hash)
-        {
-            hashString.AppendFormat("{0:x2}", temp);
-        }
-
-        return hashString.ToString();
     }
 
     private void ResetFields()
@@ -141,15 +114,5 @@ public class Register : MonoBehaviour
         isSuccess = result;
 
         return isSuccess;
-    }
-
-    private Text FindObjectByTag(string nameOfObject)
-    {
-        return GameObject.FindGameObjectWithTag(nameOfObject).GetComponent<Text>();
-    }
-
-    private void ShowMessageError(string message, Text textObject)
-    {
-        textObject.text = message;
     }
 }

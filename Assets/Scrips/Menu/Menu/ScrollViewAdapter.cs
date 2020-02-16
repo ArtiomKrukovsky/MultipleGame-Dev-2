@@ -17,7 +17,7 @@ public class ScrollViewAdapter : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.Log($"Error, something went wrong: { e.Message }");
+            Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage}: { e.Message }");
         }
     }
 
@@ -28,14 +28,14 @@ public class ScrollViewAdapter : MonoBehaviour
            gameObject.GetComponent<Button>().interactable = false;
 
            JoinLobby.RefreshMatchies();
-           GameObject searchLine = this.FindObjectByTag("SearchLine");
+           GameObject searchLine = BaseHelper.FindObjectByTag("SearchLine");
 
            StartCoroutine(GetMatchViewElements(true, searchLine.GetComponent<InputField>().text));
            StartCoroutine(EnableRefreshButton());
         }
         catch(Exception e)
         {
-            Debug.Log($"Error, something went wrong: { e.Message }");
+            Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage} { e.Message }");
         }
     }
 
@@ -43,7 +43,7 @@ public class ScrollViewAdapter : MonoBehaviour
     {
         try
         {
-            GameObject network = this.FindObjectByTag("Network");
+            GameObject network = BaseHelper.FindObjectByTag(BaseConstants.Network);
             var manager = network?.GetComponent<NetworkManager>();
 
             var matches = new MatchModel[manager.matches.Count];
@@ -75,7 +75,7 @@ public class ScrollViewAdapter : MonoBehaviour
 
         if (content == null || matches == null || prefab == null)
         {
-            Debug.Log($"Error, something went wrong");
+            Debug.Log(BaseConstants.Messages.SomethingWentWrongMessage);
             yield break;
         }
 
@@ -120,11 +120,6 @@ public class ScrollViewAdapter : MonoBehaviour
         MatchViewModel view = new MatchViewModel(viewGameObject.transform);
         view.MatchName.text = model.MatchName;
         view.MatchSize.text = model.MatchSize.ToString();
-    }
-
-    private GameObject FindObjectByTag(string tag)
-    {
-        return GameObject.FindGameObjectWithTag(tag);
     }
 
     private IEnumerator EnableRefreshButton()

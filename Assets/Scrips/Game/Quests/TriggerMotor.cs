@@ -27,9 +27,9 @@ public class TriggerMotor : MonoBehaviour
             questionPanel.SetActive(true);
             for (int i = 0; i < _questionActivate.Count; i++)
             {
-                if (gameObject.name == "Trigger" + (i + 1) && !_questionActivate[i + 1])
+                if (gameObject.name == "Trigger" + (i + 1) && !_questionActivate[i])
                 {
-                    _questionActivate[0] = true;
+                    _questionActivate[i] = true;
                     var question = GameObject.FindGameObjectWithTag("QuestionText");
                     question.GetComponent<Text>().text = "question 1 from db";
 

@@ -13,8 +13,8 @@ public class BuildingProcessor : MonoBehaviour
 
         var mapName = transform.name;
 
-        PlayerPrefs.DeleteKey("MapName");
-        PlayerPrefs.SetString("MapName", mapName);
+        PlayerPrefs.DeleteKey(BaseConstants.Prefs.MapName);
+        PlayerPrefs.SetString(BaseConstants.Prefs.MapName, mapName);
 
         LobbyPopups.ViewCreateLobbyPopup(createLobbyPopup);
     }

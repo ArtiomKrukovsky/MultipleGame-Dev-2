@@ -22,7 +22,7 @@ public class LobbyPopups : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.DeleteKey("MapName");
+            PlayerPrefs.DeleteKey(BaseConstants.Prefs.MapName);
             createLobbyPopup.SetActive(false);
         }
     }
@@ -33,29 +33,19 @@ public class LobbyPopups : MonoBehaviour
         {
             if (createLobbyPopup != null)
             {
-                foundErrorTextComponent = foundErrorTextComponent ?? this.FindObjectByTag("Error message").GetComponent<Text>();
+                foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
                 this.HideMessageError(foundErrorTextComponent);
                 createLobbyPopup.SetActive(false);
-                PlayerPrefs.DeleteKey("MapName");
+                PlayerPrefs.DeleteKey(BaseConstants.Prefs.MapName);
             }
         }
         catch
         {
-            foundErrorTextComponent = foundErrorTextComponent ?? this.FindObjectByTag("Error message").GetComponent<Text>();
-            this.ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorTextComponent);
-            Debug.Log("Error, something went wrong");
+            foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
+            BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorTextComponent);
+            Debug.Log(BaseConstants.Messages.SomethingWentWrongMessage);
             return;
         }
-    }
-
-    private void ShowMessageError(string message, Text textObject)
-    {
-        textObject.text = message;
-    }
-
-    private GameObject FindObjectByTag(string tag)
-    {
-        return GameObject.FindGameObjectWithTag(tag);
     }
 
     private void HideMessageError(Text textObject)

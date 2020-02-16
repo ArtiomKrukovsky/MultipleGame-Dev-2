@@ -20,12 +20,12 @@ public class JoinMatch : MonoBehaviour, IPointerClickHandler
     {
         try
         {
-            network = this.FindObjectByTag("Network");
+            network = BaseHelper.FindObjectByTag(BaseConstants.Network);
             manager = network?.GetComponent<NetworkManager>();
         }
         catch (Exception e)
         {
-            Debug.LogError($"Error, something went wrong: { e.Message }");
+            Debug.LogError($"{BaseConstants.Messages.SomethingWentWrongMessage} { e.Message }");
         }
     }
 
@@ -92,13 +92,8 @@ public class JoinMatch : MonoBehaviour, IPointerClickHandler
         }
         catch (Exception ex)
         {
-            Debug.Log($"Error, something went wrong: { ex.Message }");
+            Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage} { ex.Message }");
             SceneManager.LoadScene("Menu");
         }
-    }
-
-    private GameObject FindObjectByTag(string tag)
-    {
-        return GameObject.FindGameObjectWithTag(tag);
     }
 }

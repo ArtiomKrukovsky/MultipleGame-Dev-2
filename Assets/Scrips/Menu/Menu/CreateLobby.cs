@@ -18,22 +18,22 @@ public class CreateLobby : MonoBehaviour
     {
         try
         {
-            foundErrorTextComponent = foundErrorTextComponent ?? this.FindObjectByTag("Error message").GetComponent<Text>();
+            foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
 
             this.HideMessageError(foundErrorTextComponent);
 
             if (!serverName.text.Any())
             {
-                this.ShowMessageError("Please, enter name of server", foundErrorTextComponent);
+                BaseHelper.ShowMessageError("Please, enter name of server", foundErrorTextComponent);
                 return;
             }
 
-            GameObject network = this.FindObjectByTag("Network");
+            GameObject network = BaseHelper.FindObjectByTag(BaseConstants.Network);
             var manager = network?.GetComponent<NetworkManager>();
 
             if (manager == null)
             {
-                Debug.Log($"Manager is null");
+                Debug.Log(BaseConstants.Messages.ManagerNullMessage);
                 return;
             }
 
@@ -44,7 +44,7 @@ public class CreateLobby : MonoBehaviour
                 manager.StartMatchMaker();
             }
 
-            var mapName = PlayerPrefs.GetString("MapName");
+            var mapName = PlayerPrefs.GetString(BaseConstants.Prefs.MapName);
 
             if (string.IsNullOrEmpty(mapName))
             {
@@ -64,7 +64,7 @@ public class CreateLobby : MonoBehaviour
                     {
                         if (reader.HasRows)
                         {
-                            this.ShowMessageError("Server with this name is already exist", foundErrorTextComponent);
+                            BaseHelper.ShowMessageError("Server with this name is already exist", foundErrorTextComponent);
                             return;
                         }
                     }
@@ -80,7 +80,6 @@ public class CreateLobby : MonoBehaviour
                     insertCommand.Parameters.Add("@sceneName", SqlDbType.NVarChar).Value = mapName;
 
                     insertCommand.ExecuteNonQuery();
-                    Debug.Log("Success adding to database");
 
                     SceneManager.LoadScene(mapName);
                     manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
@@ -91,21 +90,11 @@ public class CreateLobby : MonoBehaviour
         }
         catch(Exception e)
         {
-            foundErrorTextComponent = foundErrorTextComponent ?? this.FindObjectByTag("Error message").GetComponent<Text>();
-            ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorTextComponent);
-            Debug.Log($"Error, something went wrong: { e.Message }");
+            foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
+            BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorTextComponent);
+            Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage} { e.Message }");
             SceneManager.LoadScene("Menu");
         }
-    }
-
-    private GameObject FindObjectByTag(string tag)
-    {
-        return GameObject.FindGameObjectWithTag(tag);
-    }
-
-    private void ShowMessageError(string message, Text textObject)
-    {
-        textObject.text = message;
     }
 
     private void HideMessageError(Text textObject)
