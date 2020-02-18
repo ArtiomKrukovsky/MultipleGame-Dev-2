@@ -5,13 +5,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class TriggerMotor : MonoBehaviour
+public class TriggerMotor : NetworkBehaviour
 {
     public GameObject questionPanel;
     public GameObject masAnswers;
 
-    //make field sync
-    private List<bool> _questionActivate = new List<bool>();
+    private SyncListBool _questionActivate = new SyncListBool();
 
     private void Start()
     {
