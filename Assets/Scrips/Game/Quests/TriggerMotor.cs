@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Contexts;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class TriggerMotor : MonoBehaviour
@@ -8,12 +10,12 @@ public class TriggerMotor : MonoBehaviour
     public GameObject questionPanel;
     public GameObject masAnswers;
 
-    [SerializeField]
+    //make field sync
     private List<bool> _questionActivate = new List<bool>();
 
     private void Start()
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 20; i++)
         {
             _questionActivate.Add(false);
         }
@@ -23,7 +25,6 @@ public class TriggerMotor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Question is visible");
             questionPanel.SetActive(true);
             for (int i = 0; i < _questionActivate.Count; i++)
             {
@@ -47,14 +48,16 @@ public class TriggerMotor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Question is invisible");
             questionPanel.SetActive(false);
-            if (gameObject.name == "Trigger1")
+            for (int i = 0; i < _questionActivate.Count; i++)
             {
-                var answers = masAnswers.transform.Find("Question1");
-                foreach (Transform answer in answers)
+                if (gameObject.name == "Trigger" + (i + 1))
                 {
-                    answer.gameObject.SetActive(false);
+                    var answers = masAnswers.transform.Find("Question" + (i + 1));
+                    foreach (Transform answer in answers)
+                    {
+                        answer.gameObject.SetActive(false);
+                    }
                 }
             }
             gameObject.GetComponent<BoxCollider>().enabled = false;
