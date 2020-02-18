@@ -14,5 +14,6 @@ public class BaseConstants : MonoBehaviour
         public static string ErrorMessage = "Error message";
         public static string SomethingWentWrongMessage = "Oooppss, something went wrong";
         public static string ManagerNullMessage = "Manager is null";
+        public static string QuestNullMessage = "Sorry, something went wrong. Try to restart game.";
     }
 }

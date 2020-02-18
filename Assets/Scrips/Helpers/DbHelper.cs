@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using UnityEngine;
 
@@ -31,6 +31,81 @@ public static class DbHelper
 
                 dbConnection.Close();
             }
+        }
+    }
+
+    public static string GetQuestionFromDB(string mapName, string questNumber)
+    {
+        if (string.IsNullOrEmpty(mapName) || string.IsNullOrEmpty(questNumber))
+        {
+            Debug.Log("Quest is null");
+            return BaseConstants.Messages.QuestNullMessage;
+        }
+
+        using (SqlConnection dbConnection = new SqlConnection(ConnectionString))
+        {
+            dbConnection.Open();
+
+            string selectQuestQuery = "SELECT Question FROM Questions WHERE Map = @mapName AND QuestionNumber = @questNumber;";
+
+            SqlCommand command = new SqlCommand(selectQuestQuery, dbConnection);
+
+            command.Parameters.Add("@mapName", SqlDbType.NVarChar).Value = mapName;
+            command.Parameters.Add("@questNumber", SqlDbType.NVarChar).Value = questNumber;
+
+            using (DbDataReader reader = command.ExecuteReader())
+            {
+                if (!reader.HasRows)
+                {
+                    Debug.Log("Question is not exist in DB");
+                    dbConnection.Close();
+                    return BaseConstants.Messages.QuestNullMessage;
+                }
+
+                while (reader.Read())
+                {
+                    string question = reader.GetString(0);
+
+                    if (!string.IsNullOrEmpty(question))
+                    {
+                        dbConnection.Close();
+                        return question;
+                    }
+                }
+            }
+
+            Debug.Log("Question is not exist in DB");
+            dbConnection.Close();
+            return BaseConstants.Messages.QuestNullMessage;
+        }
+    }
+
+    public static void SetRatingToBD(string mapName, string teamName, int? score)
+    {
+        if (string.IsNullOrEmpty(mapName) || string.IsNullOrEmpty(teamName) || score != null)
+        {
+            Debug.Log("Paramets to set rating is null");
+            return;
+        }
+
+        using (SqlConnection dbConnection = new SqlConnection(ConnectionString))
+        {
+            dbConnection.Open();
+
+            string query = "INSERT INTO Ratings (Id, Team, Map, Score)" + " values (@id, @mapName, @teamName, @score) ";
+
+            using (SqlCommand command = new SqlCommand(query, dbConnection))
+            {
+                command.Parameters.Add("@id", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
+                command.Parameters.Add("@mapName", SqlDbType.NVarChar).Value = mapName;
+                command.Parameters.Add("@teamName", SqlDbType.NVarChar).Value = teamName;
+                command.Parameters.Add("@score", SqlDbType.Int).Value = score;
+
+                command.ExecuteNonQuery();
+                Debug.Log("Success added rating to DB");
+            }
+
+            dbConnection.Close();
         }
     }
 }

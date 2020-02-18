@@ -32,7 +32,7 @@ public class RatingController : MonoBehaviour
             {
                 dbConnection.Open();
 
-                string query = "SELECT Rating, Team, Map, Score FROM Ratings";
+                string query = "SELECT Team, Map, Score FROM Ratings";
                 using (SqlCommand command = new SqlCommand(query, dbConnection))
                 {
                     using (DbDataReader reader = command.ExecuteReader())
@@ -47,10 +47,9 @@ public class RatingController : MonoBehaviour
                         {
                             ratings.Add(new RatingModel
                             {
-                                Rating = Convert.ToInt32(reader.GetString(0)),
-                                Team = reader.GetString(1),
-                                Map = reader.GetString(2),
-                                Score = Convert.ToInt32(reader.GetString(3))
+                                Team = reader.GetString(0),
+                                Map = reader.GetString(1),
+                                Score = Convert.ToInt32(reader.GetString(2))
                             });
                         }
                     }
@@ -59,6 +58,8 @@ public class RatingController : MonoBehaviour
 
             if (ratings != null && ratings.Any())
             {
+                ratings = ratings.OrderBy(x => x.Score).Select((item, index) => { item.Rating = index; return item; }).ToList();
+
                 foreach (var rating in ratings)
                 {
                     SetRatingParametrs(prefab, content, rating);
