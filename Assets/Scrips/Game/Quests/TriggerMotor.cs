@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Contexts;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TriggerMotor : NetworkBehaviour
@@ -22,44 +24,41 @@ public class TriggerMotor : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag != "Player")
         {
-            questionPanel.SetActive(true);
-            for (int i = 0; i < _questionActivate.Count; i++)
-            {
-                if (gameObject.name == "Trigger" + (i + 1) && !_questionActivate[i])
-                {
-                    _questionActivate[i] = true;
-                    var question = GameObject.FindGameObjectWithTag("QuestionText");
-                    question.GetComponent<Text>().text = DbHelper.GetQuestionFromDB("BrestCastle",(i+1).ToString());
+            return;
+        }
+        questionPanel.SetActive(true);
+        int number = Convert.ToInt32(gameObject.name.Substring(7));
+        if (number == 0 || _questionActivate[number - 1])
+        {
+            return;
+        }
+        _questionActivate[number - 1] = true;
+        var question = GameObject.FindGameObjectWithTag("QuestionText");
+        question.GetComponent<Text>().text = DbHelper.GetQuestionFromDB(SceneManager.GetActiveScene().name, number.ToString());
 
-                    var answers = masAnswers.transform.Find("Question" + (i + 1));
-                    foreach (Transform answer in answers)
-                    {
-                        answer.GetComponent<BoxCollider>().enabled = true;
-                    }
-                }
-            }
+        var answers = masAnswers.transform.Find("Question" + number);
+        foreach (Transform answer in answers)
+        {
+            answer.GetComponent<BoxCollider>().enabled = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag != "Player")
         {
-            questionPanel.SetActive(false);
-            for (int i = 0; i < _questionActivate.Count; i++)
-            {
-                if (gameObject.name == "Trigger" + (i + 1))
-                {
-                    var answers = masAnswers.transform.Find("Question" + (i + 1));
-                    foreach (Transform answer in answers)
-                    {
-                        answer.gameObject.SetActive(false);
-                    }
-                }
-            }
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            return;
         }
+        questionPanel.SetActive(false);
+        int number = Convert.ToInt32(gameObject.name.Substring(7));
+        var answers = masAnswers.transform.Find("Question" + number);
+        foreach (Transform answer in answers)
+        {
+            answer.gameObject.SetActive(false);
+        }
+
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 }
