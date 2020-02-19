@@ -28,13 +28,14 @@ public class TriggerMotor : NetworkBehaviour
         {
             return;
         }
-        questionPanel.SetActive(true);
         int number = Convert.ToInt32(gameObject.name.Substring(7));
         if (number == 0 || _questionActivate[number - 1])
         {
             return;
         }
+        other.GetComponent<RaycastScript>().enabled = true;
         _questionActivate[number - 1] = true;
+        questionPanel.SetActive(true);
         var question = GameObject.FindGameObjectWithTag("QuestionText");
         question.GetComponent<Text>().text = DbHelper.GetQuestionFromDB(SceneManager.GetActiveScene().name, number.ToString());
 
@@ -52,6 +53,7 @@ public class TriggerMotor : NetworkBehaviour
             return;
         }
         questionPanel.SetActive(false);
+        other.GetComponent<RaycastScript>().enabled = false;
         int number = Convert.ToInt32(gameObject.name.Substring(7));
         var answers = masAnswers.transform.Find("Question" + number);
         foreach (Transform answer in answers)
