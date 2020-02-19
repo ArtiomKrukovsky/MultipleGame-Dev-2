@@ -19,13 +19,15 @@ public class RaycastScript : MonoBehaviour
                 {
                     Debug.Log("Correct answer");
                     GameObject.Find("QuestionPanel").SetActive(false);
-                    GameObject.Find("Question1").SetActive(false);
+                    //GameObject.Find("Question1").SetActive(false);
+                    hit.transform.parent.gameObject.SetActive(false);
                 }
                 else if (hit.transform.tag == "IncorrectAnswer")
                 {
                     Debug.Log("Incorrect answer");
                     GameObject.Find("QuestionPanel").SetActive(false);
-                    GameObject.Find("Question1").SetActive(false);
+                    //GameObject.Find("Question1").SetActive(false);
+                    hit.transform.parent.gameObject.SetActive(false);
                 }
 
                 GameObject.Find("Trigger1").GetComponent<BoxCollider>().enabled = false;
