@@ -31,7 +31,7 @@ public class TriggerMotor : NetworkBehaviour
                 {
                     _questionActivate[i] = true;
                     var question = GameObject.FindGameObjectWithTag("QuestionText");
-                    question.GetComponent<Text>().text = "question 1 from db";
+                    question.GetComponent<Text>().text = DbHelper.GetQuestionFromDB("BrestCastle",(i+1).ToString());
 
                     var answers = masAnswers.transform.Find("Question" + (i + 1));
                     foreach (Transform answer in answers)

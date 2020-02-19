@@ -108,4 +108,32 @@ public static class DbHelper
             dbConnection.Close();
         }
     }
+
+    public static void AddQuestionToDB(string question, string mapName, string questNumber)
+    {
+        if (string.IsNullOrEmpty(mapName) || string.IsNullOrEmpty(questNumber))
+        {
+            Debug.Log("Quest is null");
+        }
+
+        using (SqlConnection dbConnection = new SqlConnection(ConnectionString))
+        {
+            dbConnection.Open();
+
+            string addQuestionQuery = "INSERT INTO Questions (Id, QuestionNumber, Map, Question) VALUES (@id, @questNumber, @mapName, @question) ";
+
+            using (SqlCommand command = new SqlCommand(addQuestionQuery, dbConnection))
+            {
+                command.Parameters.Add("@mapName", SqlDbType.NVarChar).Value = mapName;
+                command.Parameters.Add("@question", SqlDbType.NVarChar).Value = question;
+                command.Parameters.Add("@id", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
+                command.Parameters.Add("@questNumber", SqlDbType.NVarChar).Value = questNumber;
+                command.ExecuteNonQuery();
+
+                Debug.Log("Success add question to database");
+            }
+
+            dbConnection.Close();
+        }
+    }
 }
