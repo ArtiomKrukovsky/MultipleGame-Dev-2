@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RaycastScript : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class RaycastScript : MonoBehaviour
     {
         try
         {
-            var ray = Camera.allCameras[0].ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(transform.position, ray.direction * rayDistance);
-            RaycastHit hit;
-
             if (Input.GetKeyDown(KeyCode.F))
             {
+                var cursor = GameObject.Find("Cursor");
+                var ray = Camera.allCameras[0].ScreenPointToRay(cursor.transform.position);
+                Debug.DrawRay(transform.position, ray.direction * rayDistance);
+                RaycastHit hit;
+
                 if (Physics.Raycast(ray, out hit))
                 {
                     if (hit.transform.tag == "CorrectAnswer")
