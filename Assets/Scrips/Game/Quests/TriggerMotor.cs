@@ -24,7 +24,7 @@ public class TriggerMotor : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player")
+        if (other.tag != "Player1")
         {
             return;
         }
@@ -48,7 +48,7 @@ public class TriggerMotor : NetworkBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Player")
+        if (other.tag != "Player1")
         {
             return;
         }

@@ -13,6 +13,7 @@ TagManager:
   - CorrectAnswer
   - IncorrectAnswer
   - QuestionText
+  - Player1
   layers:
   - Default
   - TransparentFX

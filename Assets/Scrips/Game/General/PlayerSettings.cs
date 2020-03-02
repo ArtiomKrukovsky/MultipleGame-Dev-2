@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scrips.Game.General;
+using UnityEngine;
 
 public class PlayerSettings : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class PlayerSettings : MonoBehaviour
     {
         try
         {
+            
             SetPlayerName();
         }
         catch (System.Exception)
@@ -28,7 +30,7 @@ public class PlayerSettings : MonoBehaviour
             this.ChangePlayerObjectName(playerName);
         }
     }
-
+    
     private void ChangePlayerObjectName(string name)
     {
         this.gameObject.name = name;
