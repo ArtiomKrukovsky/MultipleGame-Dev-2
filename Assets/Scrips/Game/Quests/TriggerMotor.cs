@@ -12,14 +12,11 @@ public class TriggerMotor : NetworkBehaviour
     public GameObject questionPanel;
     public GameObject masAnswers;
 
-    private SyncListBool _questionActivate = new SyncListBool();
+    private SyncListBool _syncListQuestionActivate = new SyncListBool();
 
-    private void Start()
+    public override void OnStartServer()
     {
-        for (int i = 0; i < 20; i++)
-        {
-            _questionActivate.Add(false);
-        }
+        InitializeList();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,14 +24,14 @@ public class TriggerMotor : NetworkBehaviour
         if (other.tag != "Player1")
         {
             return;
-        }
+        } 
         int number = Convert.ToInt32(gameObject.name.Substring(7));
-        if (number == 0 || _questionActivate[number - 1])
+        if (number == 0 || _syncListQuestionActivate[number - 1])
         {
             return;
         }
         other.GetComponent<RaycastScript>().enabled = true;
-        _questionActivate[number - 1] = true;
+        CmdUnableQuestion(number - 1);
         questionPanel.SetActive(true);
         var question = GameObject.FindGameObjectWithTag("QuestionText");
         question.GetComponent<Text>().text = DbHelper.GetQuestionFromDB(SceneManager.GetActiveScene().name, number.ToString());
@@ -62,5 +59,20 @@ public class TriggerMotor : NetworkBehaviour
         }
 
         gameObject.GetComponent<BoxCollider>().enabled = false;
+    }
+
+    [Command]
+    private void CmdUnableQuestion(int number)
+    {
+        _syncListQuestionActivate[number] = true;
+    }
+
+    [Server]
+    private void InitializeList()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            _syncListQuestionActivate.Add(false);
+        }
     }
 }
