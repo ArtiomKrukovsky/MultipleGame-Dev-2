@@ -1,13 +1,15 @@
-﻿using Assets.Scrips.Game.General;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerSettings : MonoBehaviour
+public class PlayerSettings : NetworkBehaviour
 {
+    [SyncVar]
+    public string playerName = "player";
+
     private void Start()
     {
         try
         {
-            
             SetPlayerName();
         }
         catch (System.Exception)
@@ -23,16 +25,24 @@ public class PlayerSettings : MonoBehaviour
 
     private void SetPlayerName()
     {
-       string playerName = this.GetPlayerName();
-        if (!string.IsNullOrEmpty(playerName))
+        if (isLocalPlayer)
         {
-            this.GetComponentInChildren<TextMesh>().text =  playerName;
-            this.ChangePlayerObjectName(playerName);
+            string playerName = this.GetPlayerName();
+            if (!string.IsNullOrEmpty(playerName))
+            {
+                CmdSyncNameOnServer(playerName);
+            }
         }
     }
-    
-    private void ChangePlayerObjectName(string name)
+
+    [Command]
+    public void CmdSyncNameOnServer(string name)
     {
-        this.gameObject.name = name;
+        playerName = name;
+    }
+
+    private void Update()
+    {
+        this.GetComponentInChildren<TextMesh>().text = this.playerName;
     }
 }

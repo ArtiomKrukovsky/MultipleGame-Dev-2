@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430ab18c428f33445a2fd19763da0334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: player
 --- !u!114 &8770432910703350146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,10 +177,9 @@ MonoBehaviour:
   - {fileID: 9094838619233310829}
   - {fileID: 7480469712642434087}
   - {fileID: 5363887971308305990}
-  - {fileID: 1421627451326051892}
+  - {fileID: 2845974254011959371}
   - {fileID: 4405183167784567619}
   - {fileID: 2969819451715610031}
-  - {fileID: 2845974254011959371}
 --- !u!114 &5365223064742104493
 MonoBehaviour:
   m_ObjectHideFlags: 0
