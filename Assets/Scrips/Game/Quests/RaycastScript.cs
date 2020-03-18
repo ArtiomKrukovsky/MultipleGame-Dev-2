@@ -1,15 +1,24 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RaycastScript : MonoBehaviour
 {
     public float rayDistance = 3f;
 
+    private int _countOfAnswers = 0;
+
+    private int _score = 0;
+
     void Update()
     {
         try
         {
+            if (IsEndGame() ?? false && TriggerMotor._listQuestionActivate.Count == _countOfAnswers)
+            {
+                RedirectMenuScripts.LeaveServer(true, _score);
+            }
+
             if (Input.GetKeyDown(KeyCode.F))
             {
                 var cursor = GameObject.Find("Cursor");
@@ -23,11 +32,13 @@ public class RaycastScript : MonoBehaviour
                     {
                         Debug.Log("Correct answer");
                         this.DisableQuestObjects(hit);
+                        _countOfAnswers++;
                     }
                     else if (hit.transform.tag == "IncorrectAnswer")
                     {
                         Debug.Log("Incorrect answer");
                         this.DisableQuestObjects(hit);
+                        _countOfAnswers++;
                     }
                 }
             }
@@ -46,5 +57,15 @@ public class RaycastScript : MonoBehaviour
 
         var number = Convert.ToInt32(hit.transform.parent.name.Substring(8));
         GameObject.Find("Trigger" + number).GetComponent<BoxCollider>().enabled = false;
+    }
+
+    private void IncreaseTeamScore()
+    {
+        this._score++;
+    }
+
+    private static bool? IsEndGame()
+    {
+        return TriggerMotor._listQuestionActivate?.All(x=> x == true);
     }
 }

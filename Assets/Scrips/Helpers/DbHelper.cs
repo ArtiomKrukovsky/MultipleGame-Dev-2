@@ -92,7 +92,7 @@ public static class DbHelper
         {
             dbConnection.Open();
 
-            string query = "INSERT INTO Ratings (Id, Team, Map, Score)" + " values (@id, @mapName, @teamName, @score) ";
+            string query = "INSERT INTO Rating (Id, Team, Map, Score)" + " values (@id, @mapName, @teamName, @score) ";
 
             using (SqlCommand command = new SqlCommand(query, dbConnection))
             {

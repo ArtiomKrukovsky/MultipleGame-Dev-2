@@ -12,7 +12,7 @@ public class TriggerMotor : NetworkBehaviour
     public GameObject questionPanel;
     public GameObject masAnswers;
 
-    private SyncListBool _syncListQuestionActivate = new SyncListBool();
+    internal static List<bool> _listQuestionActivate = new List<bool>();
 
     public override void OnStartServer()
     {
@@ -26,7 +26,7 @@ public class TriggerMotor : NetworkBehaviour
             return;
         } 
         int number = Convert.ToInt32(gameObject.name.Substring(7));
-        if (number == 0 || _syncListQuestionActivate[number - 1])
+        if (number == 0 || _listQuestionActivate[number - 1])
         {
             return;
         }
@@ -61,18 +61,16 @@ public class TriggerMotor : NetworkBehaviour
         gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
-    [Command]
     private void CmdUnableQuestion(int number)
     {
-        _syncListQuestionActivate[number] = true;
+        _listQuestionActivate[number] = true;
     }
 
-    [Server]
     private void InitializeList()
     {
         for (int i = 0; i < 20; i++)
         {
-            _syncListQuestionActivate.Add(false);
+            _listQuestionActivate.Add(false);
         }
     }
 }

@@ -19,16 +19,16 @@ public class RedirectMenuScripts : MonoBehaviour
 
     public void RedirectToLobby()
     {
-        this.LeaveServer();
+        LeaveServer();
     }
 
     public void QuitGame()
     {
-        this.LeaveServer();
+        LeaveServer();
         Application.Quit();
     }
 
-    private async void LeaveServer()
+    internal static void LeaveServer(bool IsEndOfTheGame = false, int score = 0)
     {
         var networkManager = NetworkManager.singleton;
 
@@ -44,19 +44,24 @@ public class RedirectMenuScripts : MonoBehaviour
                 return;
             }
 
-            var serverNameToDelete = "";
+            var serverName = "";
 
             foreach (var match in networkManager.matches)
             {
                 if (match.networkId == matchInfo.networkId)
                 {
-                    serverNameToDelete = match.name;
+                    serverName = match.name;
                 }
             }
 
-            if (!string.IsNullOrEmpty(serverNameToDelete))
+            if (IsEndOfTheGame)
             {
-               PlayerPrefs.SetString("ServerToDisconnect", serverNameToDelete);
+                DbHelper.SetRatingToBD(SceneManager.GetActiveScene().name, serverName, score);
+            }
+
+            if (!string.IsNullOrEmpty(serverName))
+            {
+               PlayerPrefs.SetString("ServerToDisconnect", serverName);
             }
 
             networkManager.StopHost();
