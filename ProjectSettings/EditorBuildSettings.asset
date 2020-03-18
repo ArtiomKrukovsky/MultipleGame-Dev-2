@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuestScenes/BrestCastle.unity
     guid: b93ff1bc7d5ded049be2d23806c97b01
+  - enabled: 1
+    path: Assets/Scenes/Rating.unity
+    guid: 7bcb3b1c8cb5395478e699f69e95b16d
   m_configObjects: {}

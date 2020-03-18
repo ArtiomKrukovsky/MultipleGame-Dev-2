@@ -82,7 +82,7 @@ public static class DbHelper
 
     public static void SetRatingToBD(string mapName, string teamName, int? score)
     {
-        if (string.IsNullOrEmpty(mapName) || string.IsNullOrEmpty(teamName) || score != null)
+        if (string.IsNullOrEmpty(mapName) || string.IsNullOrEmpty(teamName) || score == null)
         {
             Debug.Log("Paramets to set rating is null");
             return;
@@ -92,7 +92,7 @@ public static class DbHelper
         {
             dbConnection.Open();
 
-            string query = "INSERT INTO Rating (Id, Team, Map, Score)" + " values (@id, @mapName, @teamName, @score) ";
+            string query = "INSERT INTO Rating (Id, Team, Map, Score)" + " values (@id, @teamName, @mapName, @score) ";
 
             using (SqlCommand command = new SqlCommand(query, dbConnection))
             {

@@ -68,7 +68,7 @@ public class TriggerMotor : NetworkBehaviour
 
     private void InitializeList()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 1; i++)
         {
             _listQuestionActivate.Add(false);
         }

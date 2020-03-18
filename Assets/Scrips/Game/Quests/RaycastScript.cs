@@ -14,7 +14,7 @@ public class RaycastScript : MonoBehaviour
     {
         try
         {
-            if (IsEndGame() ?? false && TriggerMotor._listQuestionActivate.Count == _countOfAnswers)
+            if ((IsEndGame() ?? false) && TriggerMotor._listQuestionActivate.Count == _countOfAnswers)
             {
                 RedirectMenuScripts.LeaveServer(true, _score);
             }
@@ -32,6 +32,7 @@ public class RaycastScript : MonoBehaviour
                     {
                         Debug.Log("Correct answer");
                         this.DisableQuestObjects(hit);
+                        IncreaseTeamScore();
                         _countOfAnswers++;
                     }
                     else if (hit.transform.tag == "IncorrectAnswer")

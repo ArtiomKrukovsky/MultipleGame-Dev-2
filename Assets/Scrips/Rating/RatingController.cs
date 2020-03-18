@@ -32,7 +32,7 @@ public class RatingController : MonoBehaviour
             {
                 dbConnection.Open();
 
-                string query = "SELECT Team, Map, Score FROM Ratings";
+                string query = "SELECT Team, Map, Score FROM Rating";
                 using (SqlCommand command = new SqlCommand(query, dbConnection))
                 {
                     using (DbDataReader reader = command.ExecuteReader())
@@ -49,16 +49,16 @@ public class RatingController : MonoBehaviour
                             {
                                 Team = reader.GetString(0),
                                 Map = reader.GetString(1),
-                                Score = Convert.ToInt32(reader.GetString(2))
+                                Score = reader.GetInt32(2)
                             });
                         }
                     }
                 }
             }
 
-            if (ratings != null && ratings.Any())
+            if (ratings.Any())
             {
-                ratings = ratings.OrderBy(x => x.Score).Select((item, index) => { item.Rating = index; return item; }).ToList();
+                ratings = ratings.OrderBy(x => x.Score).Select((item, index) => { item.Rating = index + 1; return item; }).ToList();
 
                 foreach (var rating in ratings)
                 {

@@ -36,6 +36,7 @@ public class RedirectMenuScripts : MonoBehaviour
         { 
             MatchInfo matchInfo = networkManager.matchInfo;
             networkManager.matchMaker.DropConnection(matchInfo.networkId, matchInfo.nodeId, 0, networkManager.OnDropConnection);
+            Cursor.visible = true;
             SceneManager.LoadScene("Menu");
 
             if (networkManager.matches == null)
