@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Contexts;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -12,13 +9,6 @@ public class TriggerMotor : NetworkBehaviour
     public GameObject questionPanel;
     public GameObject masAnswers;
 
-    internal static List<bool> _listQuestionActivate = new List<bool>();
-
-    public override void OnStartServer()
-    {
-        InitializeList();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Player1")
@@ -26,12 +16,12 @@ public class TriggerMotor : NetworkBehaviour
             return;
         } 
         int number = Convert.ToInt32(gameObject.name.Substring(7));
-        if (number == 0 || _listQuestionActivate[number - 1])
+        if (number == 0 || QuestParametersController._listQuestionActivate[number - 1])
         {
             return;
         }
         other.GetComponent<RaycastScript>().enabled = true;
-        CmdUnableQuestion(number - 1);
+        QuestParametersController.CmdUnableQuestion(number - 1);
         questionPanel.SetActive(true);
         var question = GameObject.FindGameObjectWithTag("QuestionText");
         question.GetComponent<Text>().text = DbHelper.GetQuestionFromDB(SceneManager.GetActiveScene().name, number.ToString());
@@ -49,6 +39,7 @@ public class TriggerMotor : NetworkBehaviour
         {
             return;
         }
+        RaycastScript._countOfAnswers++;
         questionPanel.SetActive(false);
         other.GetComponent<RaycastScript>().enabled = false;
         int number = Convert.ToInt32(gameObject.name.Substring(7));
@@ -59,18 +50,5 @@ public class TriggerMotor : NetworkBehaviour
         }
 
         gameObject.GetComponent<BoxCollider>().enabled = false;
-    }
-
-    private void CmdUnableQuestion(int number)
-    {
-        _listQuestionActivate[number] = true;
-    }
-
-    private void InitializeList()
-    {
-        for (int i = 0; i < 1; i++)
-        {
-            _listQuestionActivate.Add(false);
-        }
     }
 }

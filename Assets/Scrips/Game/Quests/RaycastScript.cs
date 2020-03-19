@@ -6,7 +6,7 @@ public class RaycastScript : MonoBehaviour
 {
     public float rayDistance = 3f;
 
-    private int _countOfAnswers = 0;
+    internal static int _countOfAnswers = 0;
 
     private int _score = 0;
 
@@ -14,7 +14,7 @@ public class RaycastScript : MonoBehaviour
     {
         try
         {
-            if ((IsEndGame() ?? false) && TriggerMotor._listQuestionActivate.Count == _countOfAnswers)
+            if ((IsEndGame() ?? false) && QuestParametersController._listQuestionActivate.Count == _countOfAnswers)
             {
                 RedirectMenuScripts.LeaveServer(true, _score);
             }
@@ -67,6 +67,6 @@ public class RaycastScript : MonoBehaviour
 
     private static bool? IsEndGame()
     {
-        return TriggerMotor._listQuestionActivate?.All(x=> x == true);
+        return QuestParametersController._listQuestionActivate?.All(x=> x == true);
     }
 }
