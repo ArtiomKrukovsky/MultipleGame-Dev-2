@@ -58,6 +58,7 @@ public class RedirectMenuScripts : MonoBehaviour
             if (IsEndOfTheGame)
             {
                 DbHelper.SetRatingToBD(SceneManager.GetActiveScene().name, serverName, score);
+                DbHelper.DeleteServerFromDB(serverName);
             }
 
             if (!string.IsNullOrEmpty(serverName))

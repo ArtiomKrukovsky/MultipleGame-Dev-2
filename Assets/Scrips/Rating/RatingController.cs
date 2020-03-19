@@ -32,7 +32,10 @@ public class RatingController : MonoBehaviour
             {
                 dbConnection.Open();
 
-                string query = "SELECT Team, Map, Score FROM Rating";
+                string query = "SELECT SUBSTRING(Team, CHARINDEX('_',Team) + 2, LEN(Team) - CHARINDEX('_', Team)), Map, SUM(Score) " +
+                               "FROM Rating " +
+                               "GROUP BY SUBSTRING(Team, CHARINDEX('_',Team) + 2, LEN(Team) - CHARINDEX('_', Team)), Map " +
+                               "ORDER BY SUM(Score) DESC";
                 using (SqlCommand command = new SqlCommand(query, dbConnection))
                 {
                     using (DbDataReader reader = command.ExecuteReader())
@@ -58,7 +61,7 @@ public class RatingController : MonoBehaviour
 
             if (ratings.Any())
             {
-                ratings = ratings.OrderBy(x => x.Score).Select((item, index) => { item.Rating = index + 1; return item; }).ToList();
+                ratings = ratings.Select((item, index) => { item.Rating = index + 1; return item; }).ToList();
 
                 foreach (var rating in ratings)
                 {

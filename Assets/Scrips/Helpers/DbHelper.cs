@@ -19,6 +19,8 @@ public static class DbHelper
             {
                 dbConnection.Open();
 
+                serverNameToDelete = serverNameToDelete.Replace("[", "");
+                serverNameToDelete = serverNameToDelete.Replace("]", "");
                 string deleteServerQuery = "DELETE FROM Servers WHERE ServerName = @nameToDelete;";
 
                 using (SqlCommand command = new SqlCommand(deleteServerQuery, dbConnection))
