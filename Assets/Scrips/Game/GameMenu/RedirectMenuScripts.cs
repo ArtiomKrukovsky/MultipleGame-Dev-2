@@ -17,6 +17,11 @@ public class RedirectMenuScripts : MonoBehaviour
     {
     }
 
+    public void RedirectToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void RedirectToLobby()
     {
         LeaveServer();
