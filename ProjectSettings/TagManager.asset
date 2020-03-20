@@ -14,6 +14,7 @@ TagManager:
   - IncorrectAnswer
   - QuestionText
   - Player1
+  - LobbyMessage
   layers:
   - Default
   - TransparentFX

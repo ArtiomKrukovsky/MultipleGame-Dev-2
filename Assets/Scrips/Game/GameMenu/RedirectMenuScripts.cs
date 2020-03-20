@@ -64,6 +64,7 @@ public class RedirectMenuScripts : MonoBehaviour
             {
                 DbHelper.SetRatingToBD(SceneManager.GetActiveScene().name, serverName, score);
                 DbHelper.DeleteServerFromDB(serverName);
+                SetParametersForLobbyMessage(score);
             }
 
             if (!string.IsNullOrEmpty(serverName))
@@ -78,5 +79,11 @@ public class RedirectMenuScripts : MonoBehaviour
             networkManager.StopHost();
             SceneManager.LoadScene("Menu");
         }
+    }
+
+    private static void SetParametersForLobbyMessage(int score)
+    {
+        PlayerPrefs.SetString("IsEndOfTheGame", "true");
+        PlayerPrefs.SetInt("PlayerScore", score);
     }
 }
