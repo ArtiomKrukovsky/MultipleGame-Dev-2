@@ -68,16 +68,17 @@ public class Register : MonoBehaviour
                     string query = "Insert into Users (Id, Login, Name, PasswordHash)"
                                + " values (@idUser, @loginUser, @nameUser, @passwordHash) ";
 
-                    SqlCommand command = new SqlCommand(query, dbConnection);
+                    using (SqlCommand command = new SqlCommand(query, dbConnection))
+                    {
+                        command.Parameters.Add("@idUser", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
+                        command.Parameters.Add("@loginUser", SqlDbType.NVarChar).Value = login.text;
+                        command.Parameters.Add("@nameUser", SqlDbType.NVarChar).Value = userName.text;
 
-                    command.Parameters.Add("@idUser", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
-                    command.Parameters.Add("@loginUser", SqlDbType.NVarChar).Value = login.text;
-                    command.Parameters.Add("@nameUser", SqlDbType.NVarChar).Value = userName.text;
+                        var inputHash = AuthorizationHelper.HashPassword(password.text);
+                        command.Parameters.Add("@passwordHash", SqlDbType.NVarChar).Value = inputHash;
 
-                    var inputHash = AuthorizationHelper.HashPassword(password.text);
-                    command.Parameters.Add("@passwordHash", SqlDbType.NVarChar).Value = inputHash;
-
-                    int rowCount = command.ExecuteNonQuery();
+                        int rowCount = command.ExecuteNonQuery();
+                    }
                 });
 
                 SceneManager.LoadScene("Login");
@@ -92,6 +93,7 @@ public class Register : MonoBehaviour
                 BaseHelper.ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorObject);
                 ResetFields();
                 dbConnection.Close();
+                SceneLoading.SceneLoadingLogo();
                 Debug.LogWarning(ex.ToString());
             }
         }

@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -14,7 +15,7 @@ public class CreateLobby : MonoBehaviour
 
     private Text foundErrorTextComponent;
 
-    public void CreateServer()
+    public async void CreateServer()
     {
         try
         {
@@ -25,6 +26,7 @@ public class CreateLobby : MonoBehaviour
             if (!serverName.text.Any())
             {
                 BaseHelper.ShowMessageError("Please, enter name of server", foundErrorTextComponent);
+                SceneLoading.SceneLoadingLogo();
                 return;
             }
 
@@ -34,6 +36,7 @@ public class CreateLobby : MonoBehaviour
             if (manager == null)
             {
                 Debug.Log(BaseConstants.Messages.ManagerNullMessage);
+                SceneLoading.SceneLoadingLogo();
                 return;
             }
 
@@ -53,37 +56,45 @@ public class CreateLobby : MonoBehaviour
 
             using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
             {
-                dbConnection.Open();
-
-                string query = "SELECT * FROM Servers WHERE ServerName = @serverName;";
-                using (SqlCommand command = new SqlCommand(query, dbConnection))
+                DbDataReader reader = null;
+                await Task.Factory.StartNew(() =>
                 {
-                    command.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
+                    dbConnection.Open();
 
-                    using (DbDataReader reader = command.ExecuteReader())
+                    string query = "SELECT * FROM Servers WHERE ServerName = @serverName;";
+                    SqlCommand command = new SqlCommand(query, dbConnection);
+
+                    command.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
+                    reader = command.ExecuteReader();
+                });
+
+                using (reader)
+                {
+                    if (reader.HasRows)
                     {
-                        if (reader.HasRows)
-                        {
-                            BaseHelper.ShowMessageError("Server with this name is already exist", foundErrorTextComponent);
-                            return;
-                        }
+                        BaseHelper.ShowMessageError("Server with this name is already exist", foundErrorTextComponent);
+                        SceneLoading.SceneLoadingLogo();
+                        return;
                     }
                 }
 
-                string insertQuery = "Insert into Servers (Id, ServerName, SceneName)"
+                await Task.Factory.StartNew(() =>
+                {
+                    string insertQuery = "Insert into Servers (Id, ServerName, SceneName)"
                                + " values (@id, @serverName, @sceneName) ";
 
-                using (SqlCommand insertCommand = new SqlCommand(insertQuery, dbConnection))
-                {
-                    insertCommand.Parameters.Add("@id", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
-                    insertCommand.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
-                    insertCommand.Parameters.Add("@sceneName", SqlDbType.NVarChar).Value = mapName;
+                    using (SqlCommand insertCommand = new SqlCommand(insertQuery, dbConnection))
+                    {
+                        insertCommand.Parameters.Add("@id", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
+                        insertCommand.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
+                        insertCommand.Parameters.Add("@sceneName", SqlDbType.NVarChar).Value = mapName;
 
-                    insertCommand.ExecuteNonQuery();
+                        insertCommand.ExecuteNonQuery();
+                    }
+                });
 
-                    SceneManager.LoadScene(mapName);
-                    manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
-                }
+                SceneManager.LoadScene(mapName);
+                manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
 
                 dbConnection.Close();
             }
@@ -93,6 +104,7 @@ public class CreateLobby : MonoBehaviour
             foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
             BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorTextComponent);
             Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage} { e.Message }");
+            SceneLoading.SceneLoadingLogo();
             SceneManager.LoadScene("Menu");
         }
     }
