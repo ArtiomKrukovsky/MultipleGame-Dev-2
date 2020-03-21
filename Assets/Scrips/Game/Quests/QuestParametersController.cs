@@ -17,7 +17,7 @@ public class QuestParametersController : MonoBehaviour
 
     internal static void InitializeList()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 20; i++)
         {
             _listQuestionActivate.Add(false);
         }
