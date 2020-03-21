@@ -3,9 +3,8 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,7 +17,7 @@ public class Register : MonoBehaviour
 
     public InputField password;
 
-    public void RegisterUser()
+    public async void RegisterUser()
     {
         using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
         {
@@ -29,6 +28,7 @@ public class Register : MonoBehaviour
                 {
                     BaseHelper.ShowMessageError("Password or username not entered", foundErrorObject);
                     Debug.LogWarning("Password or username not entered");
+                    SceneLoading.SceneLoadingLogo();
                     return;
                 }
 
@@ -36,30 +36,40 @@ public class Register : MonoBehaviour
                 {
                     BaseHelper.ShowMessageError("This login or password is incorrect", foundErrorObject);
                     Debug.LogWarning("This login or password is incorrect");
+                    SceneLoading.SceneLoadingLogo();
                     return;
                 }
 
-                dbConnection.Open();
-
-                string selectLoginQuery = "SELECT Login FROM Users WHERE Login = @loginUserSelect;";
-                using (SqlCommand selectLoginCommand = new SqlCommand(selectLoginQuery, dbConnection))
+                string selectLoginQuery = "";
+                DbDataReader reader = null;
+                await Task.Factory.StartNew(() =>
                 {
+                    dbConnection.Open();
+                    selectLoginQuery = "SELECT Login FROM Users WHERE Login = @loginUserSelect;";
+                    SqlCommand selectLoginCommand = new SqlCommand(selectLoginQuery, dbConnection);
+
                     selectLoginCommand.Parameters.Add("@loginUserSelect", SqlDbType.NVarChar).Value = login.text;
-                    using (DbDataReader reader = selectLoginCommand.ExecuteReader())
+                    reader = selectLoginCommand.ExecuteReader();
+                });
+            
+                using (reader)
+                {
+                    if (reader.HasRows)
                     {
-                        if (reader.HasRows)
-                        {
-                            BaseHelper.ShowMessageError("User with this login is exist", foundErrorObject);
-                            Debug.LogWarning("User with this login is exist");
-                            return;
-                        }
+                        BaseHelper.ShowMessageError("User with this login is exist", foundErrorObject);
+                        Debug.LogWarning("User with this login is exist");
+                        SceneLoading.SceneLoadingLogo();
+                        return;
                     }
                 }
 
-                string query = "Insert into Users (Id, Login, Name, PasswordHash)"
-                               + " values (@idUser, @loginUser, @nameUser, @passwordHash) ";
-                using (SqlCommand command = new SqlCommand(query, dbConnection))
+                await Task.Factory.StartNew(() =>
                 {
+                    string query = "Insert into Users (Id, Login, Name, PasswordHash)"
+                               + " values (@idUser, @loginUser, @nameUser, @passwordHash) ";
+
+                    SqlCommand command = new SqlCommand(query, dbConnection);
+
                     command.Parameters.Add("@idUser", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
                     command.Parameters.Add("@loginUser", SqlDbType.NVarChar).Value = login.text;
                     command.Parameters.Add("@nameUser", SqlDbType.NVarChar).Value = userName.text;
@@ -68,10 +78,12 @@ public class Register : MonoBehaviour
                     command.Parameters.Add("@passwordHash", SqlDbType.NVarChar).Value = inputHash;
 
                     int rowCount = command.ExecuteNonQuery();
-                    SceneManager.LoadScene("Login");
+                });
 
-                    ResetFields();
-                }
+                SceneManager.LoadScene("Login");
+                ResetFields();
+
+                SceneLoading.SceneLoadingLogo();
                 dbConnection.Close();
             }
             catch (Exception ex)
