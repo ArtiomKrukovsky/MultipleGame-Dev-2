@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -11,54 +15,98 @@ public class CreateLobby : MonoBehaviour
 
     private Text foundErrorTextComponent;
 
-    public void CreateServer()
+    public async void CreateServer()
     {
         try
         {
-            foundErrorTextComponent = foundErrorTextComponent ?? this.FindObjectByTag("Error message").GetComponent<Text>();
+            foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
 
             this.HideMessageError(foundErrorTextComponent);
 
             if (!serverName.text.Any())
             {
-                this.ShowMessageError("Please, enter name of server", foundErrorTextComponent);
+                BaseHelper.ShowMessageError("Please, enter name of server", foundErrorTextComponent);
+                SceneLoading.SceneLoadingLogo();
                 return;
             }
 
-            GameObject network = this.FindObjectByTag("Network");
+            GameObject network = BaseHelper.FindObjectByTag(BaseConstants.Network);
             var manager = network?.GetComponent<NetworkManager>();
 
             if (manager == null)
             {
-                Debug.Log($"Manager is null");
+                Debug.Log(BaseConstants.Messages.ManagerNullMessage);
+                SceneLoading.SceneLoadingLogo();
                 return;
             }
+
+            manager.StopHost();
 
             if (manager.matchMaker == null)
             {
                 manager.StartMatchMaker();
             }
 
-            SceneManager.LoadScene("GameScene");
-            manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
+            var mapName = PlayerPrefs.GetString(BaseConstants.Prefs.MapName);
+
+            if (string.IsNullOrEmpty(mapName))
+            {
+                throw new Exception("Map in null");
+            }
+
+            using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
+            {
+                DbDataReader reader = null;
+                await Task.Factory.StartNew(() =>
+                {
+                    dbConnection.Open();
+
+                    string query = "SELECT * FROM Servers WHERE ServerName = @serverName;";
+                    SqlCommand command = new SqlCommand(query, dbConnection);
+
+                    command.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
+                    reader = command.ExecuteReader();
+                });
+
+                using (reader)
+                {
+                    if (reader.HasRows)
+                    {
+                        BaseHelper.ShowMessageError("Server with this name is already exist", foundErrorTextComponent);
+                        SceneLoading.SceneLoadingLogo();
+                        return;
+                    }
+                }
+
+                await Task.Factory.StartNew(() =>
+                {
+                    string insertQuery = "Insert into Servers (Id, ServerName, SceneName)"
+                               + " values (@id, @serverName, @sceneName) ";
+
+                    using (SqlCommand insertCommand = new SqlCommand(insertQuery, dbConnection))
+                    {
+                        insertCommand.Parameters.Add("@id", SqlDbType.NVarChar).Value = Guid.NewGuid().ToString();
+                        insertCommand.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = serverName.text;
+                        insertCommand.Parameters.Add("@sceneName", SqlDbType.NVarChar).Value = mapName;
+
+                        insertCommand.ExecuteNonQuery();
+                    }
+                });
+
+                SceneManager.LoadScene(mapName);
+                manager.matchMaker.CreateMatch(serverName.text, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
+
+                dbConnection.Close();
+            }
         }
         catch(Exception e)
         {
-            foundErrorTextComponent = foundErrorTextComponent ?? this.FindObjectByTag("Error message").GetComponent<Text>();
-            ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorTextComponent);
-            Debug.Log($"Error, something went wrong: { e.Message }");
+            foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
+            BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorTextComponent);
+            Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage} { e.Message }");
+            SceneLoading.SceneLoadingLogo();
             SceneManager.LoadScene("Menu");
         }
-    }
-
-    private GameObject FindObjectByTag(string tag)
-    {
-        return GameObject.FindGameObjectWithTag(tag);
-    }
-
-    private void ShowMessageError(string message, Text textObject)
-    {
-        textObject.text = message;
     }
 
     private void HideMessageError(Text textObject)

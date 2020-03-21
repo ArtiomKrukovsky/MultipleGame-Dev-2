@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class JoinMatch : MonoBehaviour
+public class JoinMatch : MonoBehaviour, IPointerClickHandler
 {
-    public Text matchName;
-
     private GameObject network;
     private static NetworkManager manager;
 
@@ -20,45 +20,20 @@ public class JoinMatch : MonoBehaviour
     {
         try
         {
-            network = this.FindObjectByTag("Network");
+            network = BaseHelper.FindObjectByTag(BaseConstants.Network);
             manager = network?.GetComponent<NetworkManager>();
         }
         catch (Exception e)
         {
-            Debug.LogError($"Error, something went wrong: { e.Message }");
+            Debug.LogError($"{BaseConstants.Messages.SomethingWentWrongMessage} { e.Message }");
         }
     }
 
-    
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            try
-            {
-                float timeSinceLastClick = Time.time - lastClickTime;
-
-                if (timeSinceLastClick <= DoubleClickTime)
-                {
-                    JoinToMatch(matchName.text);
-                    Debug.Log("User join to match!");
-                }
-
-                lastClickTime = Time.time;
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error, something went wrong: { ex.Message }");
-            }
-        }
-    }
-
-    void OnMouseOver()
-    {
-        if (Input.GetMouseButton(0))
-        {
-
-        }
+        var matchName = this.GetComponentInChildren<Text>().text;
+        JoinToMatch(matchName);
+        Debug.Log("User join to match!");
     }
 
     private void JoinToMatch(string matchName)
@@ -70,26 +45,55 @@ public class JoinMatch : MonoBehaviour
                 return;
             }
 
+            string mapName = string.Empty;
+
+            using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
+            {
+                dbConnection.Open();
+
+                string query = "SELECT SceneName FROM Servers WHERE ServerName = @serverName;";
+                using (SqlCommand command = new SqlCommand(query, dbConnection))
+                {
+                    command.Parameters.Add("@serverName", SqlDbType.NVarChar).Value = matchName;
+
+                    using (DbDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            Debug.LogWarning("Server with this name not found!");
+                            dbConnection.Close();
+                            return;
+                        }
+
+                        while (reader.Read())
+                        {
+                            mapName = reader.GetString(0);
+                        }
+                    }
+                }
+
+                dbConnection.Close();
+            }
+
+            if (string.IsNullOrEmpty(mapName))
+            {
+                Debug.LogWarning("Map is Empty!");
+                return;
+            }
+
             foreach (var match in manager.matches)
             {
                 if (match.name == matchName)
                 {
-                    SceneManager.LoadScene("GameScene");
-                    manager.matchName = match.name;
-                    manager.matchSize = (uint)match.currentSize;
+                    SceneManager.LoadScene(mapName);
                     manager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, manager.OnMatchJoined);
                 }
             }
         }
         catch (Exception ex)
         {
-            Debug.Log($"Error, something went wrong: { ex.Message }");
+            Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage} { ex.Message }");
             SceneManager.LoadScene("Menu");
         }
-    }
-
-    private GameObject FindObjectByTag(string tag)
-    {
-        return GameObject.FindGameObjectWithTag(tag);
     }
 }

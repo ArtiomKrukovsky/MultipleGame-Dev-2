@@ -3,69 +3,65 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
-    private string _connectionString;
-
     public InputField login;
 
     public InputField password;
 
-    public void LoginUser()
+    public async void LoginUser()
     {
-        _connectionString = @"Data Source = SQL5041.site4now.net; 
-        User Id = DB_A50AD1_broadwood_admin;
-        Password = qwe123ZXC.;
-        Initial Catalog = DB_A50AD1_broadwood;";
-
-        using (SqlConnection dbConnection = new SqlConnection(_connectionString))
+        using (SqlConnection dbConnection = new SqlConnection(DbHelper.ConnectionString))
         {
             try
             {
-                Text foundErrorObject = FindObjectByTag("Error message");
+                Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
                 if (!login.text.Any() || !password.text.Any())
                 {
-                    ShowMessageError("Password or username not entered", foundErrorObject);
+                    BaseHelper.ShowMessageError("Password or username not entered", foundErrorObject);
                     Debug.LogWarning("Password or username not entered");
+                    SceneLoading.SceneLoadingLogo();
                     return;
                 }
 
-                dbConnection.Open();
-                Debug.Log("Connected to database.");
-                
-                string query = "SELECT PasswordHash, Name FROM Users WHERE Login = @loginUser;";
+                DbDataReader reader = null;
+                await Task.Factory.StartNew(() =>
+                {
+                    dbConnection.Open();
+                    string query = "SELECT PasswordHash, Name FROM Users WHERE Login = @loginUser;";
 
-                SqlCommand command = new SqlCommand(query, dbConnection);
+                    SqlCommand command = new SqlCommand(query, dbConnection);
 
-                command.Parameters.Add("@loginUser", SqlDbType.NVarChar).Value = login.text;
+                    command.Parameters.Add("@loginUser", SqlDbType.NVarChar).Value = login.text;
 
-                using (DbDataReader reader = command.ExecuteReader())
+                    reader = command.ExecuteReader();
+                });
+
+                using (reader)
                 {
                     if (!reader.HasRows)
                     {
-                        ShowMessageError("User with this login and password does not exist", foundErrorObject);
+                        BaseHelper.ShowMessageError("User with this login and password does not exist", foundErrorObject);
                         Debug.LogWarning("User with this login not found!");
                         dbConnection.Close();
+                        SceneLoading.SceneLoadingLogo();
                         return;
                     }
 
                     while (reader.Read())
                     {
-                        // Index = 0 (select 1 parameter in query).
                         var passwordDbHash = reader.GetString(0);
 
-                        //hash
-                        var inputHash = HashPassword(password.text);
+                        var inputHash = AuthorizationHelper.HashPassword(password.text);
 
                         if (passwordDbHash == null || inputHash != passwordDbHash)
                         {
-                            ShowMessageError("User with this login and password does not exist", foundErrorObject);
+                            BaseHelper.ShowMessageError("User with this login and password does not exist", foundErrorObject);
                             Debug.LogWarning("PasswordDbHash is incorrect");
                         }
                         else
@@ -73,52 +69,30 @@ public class Login : MonoBehaviour
                             PlayerPrefs.DeleteAll();
                             PlayerPrefs.SetString("PlayerName", reader.GetString(1));
 
-                            Debug.Log("Login Confirmed.");
                             SceneManager.LoadScene("Menu");
                             ResetFields();
                         }
                     }
                 }
+
+                SceneLoading.SceneLoadingLogo();
                 dbConnection.Close();
-                Debug.Log("Connection to database closed.");
             }
             catch (Exception ex)
             {
-                Text foundErrorObject = FindObjectByTag("Error message");
-                ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorObject);
+                Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
+                BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorObject);
                 Debug.LogWarning(ex.ToString());
                 ResetFields();
+                SceneLoading.SceneLoadingLogo();
                 dbConnection.Close();
             }
         }
-    }
-
-    private string HashPassword(string pswd)
-    {
-        var sha1 = SHA1.Create();
-        var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(pswd));
-        var hashString = new StringBuilder();
-        foreach (byte temp in hash)
-        {
-            hashString.AppendFormat("{0:x2}", temp);
-        }
-
-        return hashString.ToString();
     }
 
     private void ResetFields()
     {
         login.text = string.Empty;
         password.text = string.Empty;
-    }
-
-    private Text FindObjectByTag(string nameOfObject)
-    {
-        return GameObject.FindGameObjectWithTag(nameOfObject).GetComponent<Text>();
-    }
-
-    private void ShowMessageError(string message, Text textObject)
-    {
-        textObject.text = message;
     }
 }

@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: 767313b9a3c0e594fa17708097d7d1c7
+timeCreated: 1581665830
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: g_pCube27_polySurface18_meshId8_name
+    100002: g_pCube29_meshId18_name
+    100004: g_pCube44_meshId20_name
+    100006: g_pCube51_meshId9_name
+    100008: g_pCube53_meshId10_name
+    100010: g_pCube60_meshId16_name
+    100012: g_pCube61_meshId0_name
+    100014: g_pCylinder19_meshId19_name
+    100016: g_pCylinder41_meshId22_name
+    100018: g_pCylinder42_meshId5_name
+    100020: g_pCylinder61_meshId6_name
+    100022: g_polySurface12_meshId4_name
+    100024: g_polySurface17_pCube16_meshId21_name
+    100026: g_polySurface19_pCube27_meshId7_name
+    100028: g_polySurface21_meshId3_name
+    100030: g_polySurface32_meshId11_name
+    100032: g_polySurface33_pCylinder51_meshId13_name
+    100034: g_polySurface34_meshId17_name
+    100036: g_polySurface4_meshId15_name
+    100038: g_pPipe10_meshId23_name
+    100040: g_pPipe20_meshId1_name
+    100042: g_pPipe21_meshId12_name
+    100044: g_pPipe23_meshId2_name
+    100046: g_pPipe8_meshId14_name
+    100048: //RootNode
+    400000: g_pCube27_polySurface18_meshId8_name
+    400002: g_pCube29_meshId18_name
+    400004: g_pCube44_meshId20_name
+    400006: g_pCube51_meshId9_name
+    400008: g_pCube53_meshId10_name
+    400010: g_pCube60_meshId16_name
+    400012: g_pCube61_meshId0_name
+    400014: g_pCylinder19_meshId19_name
+    400016: g_pCylinder41_meshId22_name
+    400018: g_pCylinder42_meshId5_name
+    400020: g_pCylinder61_meshId6_name
+    400022: g_polySurface12_meshId4_name
+    400024: g_polySurface17_pCube16_meshId21_name
+    400026: g_polySurface19_pCube27_meshId7_name
+    400028: g_polySurface21_meshId3_name
+    400030: g_polySurface32_meshId11_name
+    400032: g_polySurface33_pCylinder51_meshId13_name
+    400034: g_polySurface34_meshId17_name
+    400036: g_polySurface4_meshId15_name
+    400038: g_pPipe10_meshId23_name
+    400040: g_pPipe20_meshId1_name
+    400042: g_pPipe21_meshId12_name
+    400044: g_pPipe23_meshId2_name
+    400046: g_pPipe8_meshId14_name
+    400048: //RootNode
+    2300000: g_pCube27_polySurface18_meshId8_name
+    2300002: g_pCube29_meshId18_name
+    2300004: g_pCube44_meshId20_name
+    2300006: g_pCube51_meshId9_name
+    2300008: g_pCube53_meshId10_name
+    2300010: g_pCube60_meshId16_name
+    2300012: g_pCube61_meshId0_name
+    2300014: g_pCylinder19_meshId19_name
+    2300016: g_pCylinder41_meshId22_name
+    2300018: g_pCylinder42_meshId5_name
+    2300020: g_pCylinder61_meshId6_name
+    2300022: g_polySurface12_meshId4_name
+    2300024: g_polySurface17_pCube16_meshId21_name
+    2300026: g_polySurface19_pCube27_meshId7_name
+    2300028: g_polySurface21_meshId3_name
+    2300030: g_polySurface32_meshId11_name
+    2300032: g_polySurface33_pCylinder51_meshId13_name
+    2300034: g_polySurface34_meshId17_name
+    2300036: g_polySurface4_meshId15_name
+    2300038: g_pPipe10_meshId23_name
+    2300040: g_pPipe20_meshId1_name
+    2300042: g_pPipe21_meshId12_name
+    2300044: g_pPipe23_meshId2_name
+    2300046: g_pPipe8_meshId14_name
+    3300000: g_pCube27_polySurface18_meshId8_name
+    3300002: g_pCube29_meshId18_name
+    3300004: g_pCube44_meshId20_name
+    3300006: g_pCube51_meshId9_name
+    3300008: g_pCube53_meshId10_name
+    3300010: g_pCube60_meshId16_name
+    3300012: g_pCube61_meshId0_name
+    3300014: g_pCylinder19_meshId19_name
+    3300016: g_pCylinder41_meshId22_name
+    3300018: g_pCylinder42_meshId5_name
+    3300020: g_pCylinder61_meshId6_name
+    3300022: g_polySurface12_meshId4_name
+    3300024: g_polySurface17_pCube16_meshId21_name
+    3300026: g_polySurface19_pCube27_meshId7_name
+    3300028: g_polySurface21_meshId3_name
+    3300030: g_polySurface32_meshId11_name
+    3300032: g_polySurface33_pCylinder51_meshId13_name
+    3300034: g_polySurface34_meshId17_name
+    3300036: g_polySurface4_meshId15_name
+    3300038: g_pPipe10_meshId23_name
+    3300040: g_pPipe20_meshId1_name
+    3300042: g_pPipe21_meshId12_name
+    3300044: g_pPipe23_meshId2_name
+    3300046: g_pPipe8_meshId14_name
+    4300000: g_pCube27_polySurface18_meshId8_name
+    4300002: g_pCube29_meshId18_name
+    4300004: g_pCube44_meshId20_name
+    4300006: g_pCube51_meshId9_name
+    4300008: g_pCube53_meshId10_name
+    4300010: g_pCube60_meshId16_name
+    4300012: g_pCube61_meshId0_name
+    4300014: g_pCylinder19_meshId19_name
+    4300016: g_pCylinder41_meshId22_name
+    4300018: g_pCylinder42_meshId5_name
+    4300020: g_pCylinder61_meshId6_name
+    4300022: g_polySurface12_meshId4_name
+    4300024: g_polySurface17_pCube16_meshId21_name
+    4300026: g_polySurface19_pCube27_meshId7_name
+    4300028: g_polySurface21_meshId3_name
+    4300030: g_polySurface32_meshId11_name
+    4300032: g_polySurface33_pCylinder51_meshId13_name
+    4300034: g_polySurface34_meshId17_name
+    4300036: g_polySurface4_meshId15_name
+    4300038: g_pPipe10_meshId23_name
+    4300040: g_pPipe20_meshId1_name
+    4300042: g_pPipe21_meshId12_name
+    4300044: g_pPipe23_meshId2_name
+    4300046: g_pPipe8_meshId14_name
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

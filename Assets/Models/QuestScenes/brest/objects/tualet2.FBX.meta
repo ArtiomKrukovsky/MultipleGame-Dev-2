@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 0e250600fc590ce4a94e5f0b1e6eb41c
+timeCreated: 1580379204
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box01
+    100002: Box03
+    100004: Box05
+    100006: Box06
+    100008: Box07
+    100010: Box08
+    100012: Box10
+    100014: Box11
+    100016: Box12
+    100018: Box13
+    100020: Box14
+    100022: Box15
+    100024: Box16
+    100026: Box17
+    100028: Box18
+    100030: Box19
+    100032: Box20
+    100034: Box21
+    100036: Box22
+    100038: Box23
+    100040: Box24
+    100042: Box25
+    100044: PivotDoor01
+    100046: Prism01
+    100048: //RootNode
+    400000: Box01
+    400002: Box03
+    400004: Box05
+    400006: Box06
+    400008: Box07
+    400010: Box08
+    400012: Box10
+    400014: Box11
+    400016: Box12
+    400018: Box13
+    400020: Box14
+    400022: Box15
+    400024: Box16
+    400026: Box17
+    400028: Box18
+    400030: Box19
+    400032: Box20
+    400034: Box21
+    400036: Box22
+    400038: Box23
+    400040: Box24
+    400042: Box25
+    400044: PivotDoor01
+    400046: Prism01
+    400048: //RootNode
+    2300000: Box01
+    2300002: Box03
+    2300004: Box05
+    2300006: Box06
+    2300008: Box07
+    2300010: Box08
+    2300012: Box10
+    2300014: Box11
+    2300016: Box12
+    2300018: Box13
+    2300020: Box14
+    2300022: Box15
+    2300024: Box16
+    2300026: Box17
+    2300028: Box18
+    2300030: Box19
+    2300032: Box20
+    2300034: Box21
+    2300036: Box22
+    2300038: Box23
+    2300040: Box24
+    2300042: Box25
+    2300044: PivotDoor01
+    2300046: Prism01
+    3300000: Box01
+    3300002: Box03
+    3300004: Box05
+    3300006: Box06
+    3300008: Box07
+    3300010: Box08
+    3300012: Box10
+    3300014: Box11
+    3300016: Box12
+    3300018: Box13
+    3300020: Box14
+    3300022: Box15
+    3300024: Box16
+    3300026: Box17
+    3300028: Box18
+    3300030: Box19
+    3300032: Box20
+    3300034: Box21
+    3300036: Box22
+    3300038: Box23
+    3300040: Box24
+    3300042: Box25
+    3300044: PivotDoor01
+    3300046: Prism01
+    4300000: Box01
+    4300002: Box03
+    4300004: Prism01
+    4300006: Box05
+    4300008: Box06
+    4300010: Box07
+    4300012: Box08
+    4300014: Box10
+    4300016: Box11
+    4300018: Box12
+    4300020: Box13
+    4300022: Box14
+    4300024: Box15
+    4300026: Box16
+    4300028: Box17
+    4300030: Box18
+    4300032: Box19
+    4300034: Box20
+    4300036: Box21
+    4300038: Box22
+    4300040: Box23
+    4300042: Box24
+    4300044: Box25
+    4300046: PivotDoor01
+    6400000: Box01
+    6400002: Box03
+    6400004: Box05
+    6400006: Box06
+    6400008: Box07
+    6400010: Box08
+    6400012: Box10
+    6400014: Box11
+    6400016: Box12
+    6400018: Box13
+    6400020: Box14
+    6400022: Box15
+    6400024: Box16
+    6400026: Box17
+    6400028: Box18
+    6400030: Box19
+    6400032: Box20
+    6400034: Box21
+    6400036: Box22
+    6400038: Box23
+    6400040: Box24
+    6400042: Box25
+    6400044: PivotDoor01
+    6400046: Prism01
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
