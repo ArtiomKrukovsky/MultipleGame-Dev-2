@@ -515,7 +515,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ce0d26443c955504dad5d274781c6718,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.059561
+      value: 13.964327
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ce0d26443c955504dad5d274781c6718,
         type: 3}
@@ -525,7 +525,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ce0d26443c955504dad5d274781c6718,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.26407
+      value: 7.273075
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ce0d26443c955504dad5d274781c6718,
         type: 3}
@@ -613,7 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288f7d30cc5e0cd459c1f334b00309f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRotation: 0
+  startRotationX: -180
+  startRotationY: 0
   createLobbyPopup: {fileID: 392309621}
 --- !u!65 &1311580220
 BoxCollider:
@@ -1289,17 +1290,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0f7e34bd0eeb488469d6c6d4131521c2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.86
+      value: 15.42
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0f7e34bd0eeb488469d6c6d4131521c2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.3
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0f7e34bd0eeb488469d6c6d4131521c2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.39
+      value: 17.44
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0f7e34bd0eeb488469d6c6d4131521c2,
         type: 3}
@@ -3039,7 +3040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288f7d30cc5e0cd459c1f334b00309f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRotation: -51
+  startRotationX: 0
+  startRotationY: -51
   createLobbyPopup: {fileID: 392309621}
 --- !u!65 &1740220085
 BoxCollider:
