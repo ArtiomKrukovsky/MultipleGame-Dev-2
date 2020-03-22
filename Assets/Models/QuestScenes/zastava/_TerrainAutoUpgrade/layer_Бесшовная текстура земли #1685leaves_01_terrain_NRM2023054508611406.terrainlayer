@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1953259897 &8574412962073106934
+TerrainLayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "layer_\u0411\u0435\u0441\u0448\u043E\u0432\u043D\u0430\u044F \u0442\u0435\u043A\u0441\u0442\u0443\u0440\u0430
+    \u0437\u0435\u043C\u043B\u0438 #1685leaves_01_terrain_NRM2023054508611406"
+  m_DiffuseTexture: {fileID: 2800000, guid: 198c5402d415cda4ab1a910a72afb49c, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 40588798939826f4781193c6f2217d5d, type: 3}
+  m_MaskMapTexture: {fileID: 0}
+  m_TileSize: {x: 5, y: 5}
+  m_TileOffset: {x: 0, y: 0}
+  m_Specular: {r: 0, g: 0, b: 0, a: 0}
+  m_Metallic: 0
+  m_Smoothness: 0
+  m_NormalScale: 1
+  m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
+  m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}

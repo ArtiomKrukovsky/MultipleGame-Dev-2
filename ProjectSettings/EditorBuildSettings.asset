@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rating.unity
     guid: 7bcb3b1c8cb5395478e699f69e95b16d
+  - enabled: 1
+    path: Assets/Scenes/QuestScenes/Zastava.unity
+    guid: c9b42ee7af522e44aa48b5010caa51fc
   m_configObjects: {}
