@@ -67,6 +67,8 @@ public class RedirectMenuScripts : MonoBehaviour
                 SetParametersForLobbyMessage(score);
             }
 
+            QuestParametersController._listQuestionActivate.Clear();
+
             if (!string.IsNullOrEmpty(serverName))
             {
                PlayerPrefs.SetString("ServerToDisconnect", serverName);

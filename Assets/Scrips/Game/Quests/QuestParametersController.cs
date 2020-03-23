@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class QuestParametersController : MonoBehaviour
 {
+    [SerializeField]
+    public int _listQuestionCount = 20;
+
     internal static List<bool> _listQuestionActivate = new List<bool>();
 
     private void Start()
@@ -15,9 +18,9 @@ public class QuestParametersController : MonoBehaviour
         _listQuestionActivate[number] = true;
     }
 
-    internal static void InitializeList()
+    internal void InitializeList()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < _listQuestionCount; i++)
         {
             _listQuestionActivate.Add(false);
         }
