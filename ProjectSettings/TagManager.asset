@@ -24,7 +24,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Marker
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 3932987029
     locked: 0
