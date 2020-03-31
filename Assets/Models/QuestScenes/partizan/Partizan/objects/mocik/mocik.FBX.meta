@@ -1,0 +1,400 @@
+fileFormatVersion: 2
+guid: 62643b708e6fe964795f4cde62ab3988
+timeCreated: 1584792650
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ' 1'
+    100002: ' 2'
+    100004: //RootNode
+    100006: R75 armazon
+    100008: R75 asiento
+    100010: R75 ballesta sidecar
+    100012: R75 barra sillin delantero
+    100014: R75 barra sillin trasero01
+    100016: R75 barras sidecar
+    100018: R75 bmw logo
+    100020: R75 bmw logo01
+    100022: R75 bolitas marchas
+    100024: R75 cable
+    100026: R75 cable 2
+    100028: R75 CRISTAL CARRO
+    100030: R75 CRISTAL CARRO2
+    100032: R75 cristal cuentakilometros
+    100034: R75 cristal faro
+    100036: R75 cuentakilometros
+    100038: R75 deposito
+    100040: R75 faro
+    100042: R75 faro carro
+    100044: R75 faro carro2
+    100046: R75 farointerior01
+    100048: R75 freno delantero
+    100050: R75 freno trasero
+    100052: R75 guardabarros delantero
+    100054: R75 guardabarros sidecar
+    100056: R75 guardabarros trasero
+    100058: R75 horqulla
+    100060: R75 llanta
+    100062: R75 llanta01
+    100064: R75 llanta02
+    100066: R75 llanta03
+    100068: R75 maleta
+    100070: R75 mangito sillin
+    100072: R75 manillar
+    100074: R75 marchas
+    100076: R75 matricula delantera
+    100078: R75 matricula delantera01
+    100080: R75 matricula delantera02
+    100082: R75 matricula trasera
+    100084: R75 matricula trasera01
+    100086: R75 mecanismo freno
+    100088: R75 motor
+    100090: R75 motor01
+    100092: R75 muelle sillin
+    100094: R75 neumatico delantero
+    100096: R75 neumatico repuesto
+    100098: R75 neumatico sidecar
+    100100: R75 neumatico trasero
+    100102: R75 palanca de aarranque
+    100104: R75 pedal freno
+    100106: R75 pieza rueda
+    100108: R75 piezas motor
+    100110: R75 piloto trasero01
+    100112: R75 sidecar
+    100114: R75 sillin delantero
+    100116: R75 sillin trasero
+    100118: R75 sujeta guardabarros
+    100120: R75 sujeta guardabarros trasero
+    100122: R75 tiangulo asiento rasero
+    100124: R75 trasmision
+    100126: R75 tubo de escape
+    100128: R75 tubo gasolina
+    100130: R75 tubo gasolina2
+    400000: ' 1'
+    400002: ' 2'
+    400004: //RootNode
+    400006: R75 armazon
+    400008: R75 asiento
+    400010: R75 ballesta sidecar
+    400012: R75 barra sillin delantero
+    400014: R75 barra sillin trasero01
+    400016: R75 barras sidecar
+    400018: R75 bmw logo
+    400020: R75 bmw logo01
+    400022: R75 bolitas marchas
+    400024: R75 cable
+    400026: R75 cable 2
+    400028: R75 CRISTAL CARRO
+    400030: R75 CRISTAL CARRO2
+    400032: R75 cristal cuentakilometros
+    400034: R75 cristal faro
+    400036: R75 cuentakilometros
+    400038: R75 deposito
+    400040: R75 faro
+    400042: R75 faro carro
+    400044: R75 faro carro2
+    400046: R75 farointerior01
+    400048: R75 freno delantero
+    400050: R75 freno trasero
+    400052: R75 guardabarros delantero
+    400054: R75 guardabarros sidecar
+    400056: R75 guardabarros trasero
+    400058: R75 horqulla
+    400060: R75 llanta
+    400062: R75 llanta01
+    400064: R75 llanta02
+    400066: R75 llanta03
+    400068: R75 maleta
+    400070: R75 mangito sillin
+    400072: R75 manillar
+    400074: R75 marchas
+    400076: R75 matricula delantera
+    400078: R75 matricula delantera01
+    400080: R75 matricula delantera02
+    400082: R75 matricula trasera
+    400084: R75 matricula trasera01
+    400086: R75 mecanismo freno
+    400088: R75 motor
+    400090: R75 motor01
+    400092: R75 muelle sillin
+    400094: R75 neumatico delantero
+    400096: R75 neumatico repuesto
+    400098: R75 neumatico sidecar
+    400100: R75 neumatico trasero
+    400102: R75 palanca de aarranque
+    400104: R75 pedal freno
+    400106: R75 pieza rueda
+    400108: R75 piezas motor
+    400110: R75 piloto trasero01
+    400112: R75 sidecar
+    400114: R75 sillin delantero
+    400116: R75 sillin trasero
+    400118: R75 sujeta guardabarros
+    400120: R75 sujeta guardabarros trasero
+    400122: R75 tiangulo asiento rasero
+    400124: R75 trasmision
+    400126: R75 tubo de escape
+    400128: R75 tubo gasolina
+    400130: R75 tubo gasolina2
+    2300000: ' 1'
+    2300002: ' 2'
+    2300004: R75 armazon
+    2300006: R75 asiento
+    2300008: R75 ballesta sidecar
+    2300010: R75 barra sillin delantero
+    2300012: R75 barra sillin trasero01
+    2300014: R75 barras sidecar
+    2300016: R75 bmw logo
+    2300018: R75 bmw logo01
+    2300020: R75 bolitas marchas
+    2300022: R75 cable
+    2300024: R75 cable 2
+    2300026: R75 CRISTAL CARRO
+    2300028: R75 CRISTAL CARRO2
+    2300030: R75 cristal cuentakilometros
+    2300032: R75 cristal faro
+    2300034: R75 cuentakilometros
+    2300036: R75 deposito
+    2300038: R75 faro
+    2300040: R75 faro carro
+    2300042: R75 faro carro2
+    2300044: R75 farointerior01
+    2300046: R75 freno delantero
+    2300048: R75 freno trasero
+    2300050: R75 guardabarros delantero
+    2300052: R75 guardabarros sidecar
+    2300054: R75 guardabarros trasero
+    2300056: R75 horqulla
+    2300058: R75 llanta
+    2300060: R75 llanta01
+    2300062: R75 llanta02
+    2300064: R75 llanta03
+    2300066: R75 maleta
+    2300068: R75 mangito sillin
+    2300070: R75 manillar
+    2300072: R75 marchas
+    2300074: R75 matricula delantera
+    2300076: R75 matricula delantera01
+    2300078: R75 matricula delantera02
+    2300080: R75 matricula trasera
+    2300082: R75 matricula trasera01
+    2300084: R75 mecanismo freno
+    2300086: R75 motor
+    2300088: R75 motor01
+    2300090: R75 muelle sillin
+    2300092: R75 neumatico delantero
+    2300094: R75 neumatico repuesto
+    2300096: R75 neumatico sidecar
+    2300098: R75 neumatico trasero
+    2300100: R75 palanca de aarranque
+    2300102: R75 pedal freno
+    2300104: R75 pieza rueda
+    2300106: R75 piezas motor
+    2300108: R75 piloto trasero01
+    2300110: R75 sidecar
+    2300112: R75 sillin delantero
+    2300114: R75 sillin trasero
+    2300116: R75 sujeta guardabarros
+    2300118: R75 sujeta guardabarros trasero
+    2300120: R75 tiangulo asiento rasero
+    2300122: R75 trasmision
+    2300124: R75 tubo de escape
+    2300126: R75 tubo gasolina
+    2300128: R75 tubo gasolina2
+    3300000: ' 1'
+    3300002: ' 2'
+    3300004: R75 armazon
+    3300006: R75 asiento
+    3300008: R75 ballesta sidecar
+    3300010: R75 barra sillin delantero
+    3300012: R75 barra sillin trasero01
+    3300014: R75 barras sidecar
+    3300016: R75 bmw logo
+    3300018: R75 bmw logo01
+    3300020: R75 bolitas marchas
+    3300022: R75 cable
+    3300024: R75 cable 2
+    3300026: R75 CRISTAL CARRO
+    3300028: R75 CRISTAL CARRO2
+    3300030: R75 cristal cuentakilometros
+    3300032: R75 cristal faro
+    3300034: R75 cuentakilometros
+    3300036: R75 deposito
+    3300038: R75 faro
+    3300040: R75 faro carro
+    3300042: R75 faro carro2
+    3300044: R75 farointerior01
+    3300046: R75 freno delantero
+    3300048: R75 freno trasero
+    3300050: R75 guardabarros delantero
+    3300052: R75 guardabarros sidecar
+    3300054: R75 guardabarros trasero
+    3300056: R75 horqulla
+    3300058: R75 llanta
+    3300060: R75 llanta01
+    3300062: R75 llanta02
+    3300064: R75 llanta03
+    3300066: R75 maleta
+    3300068: R75 mangito sillin
+    3300070: R75 manillar
+    3300072: R75 marchas
+    3300074: R75 matricula delantera
+    3300076: R75 matricula delantera01
+    3300078: R75 matricula delantera02
+    3300080: R75 matricula trasera
+    3300082: R75 matricula trasera01
+    3300084: R75 mecanismo freno
+    3300086: R75 motor
+    3300088: R75 motor01
+    3300090: R75 muelle sillin
+    3300092: R75 neumatico delantero
+    3300094: R75 neumatico repuesto
+    3300096: R75 neumatico sidecar
+    3300098: R75 neumatico trasero
+    3300100: R75 palanca de aarranque
+    3300102: R75 pedal freno
+    3300104: R75 pieza rueda
+    3300106: R75 piezas motor
+    3300108: R75 piloto trasero01
+    3300110: R75 sidecar
+    3300112: R75 sillin delantero
+    3300114: R75 sillin trasero
+    3300116: R75 sujeta guardabarros
+    3300118: R75 sujeta guardabarros trasero
+    3300120: R75 tiangulo asiento rasero
+    3300122: R75 trasmision
+    3300124: R75 tubo de escape
+    3300126: R75 tubo gasolina
+    3300128: R75 tubo gasolina2
+    4300000: R75 armazon
+    4300002: R75 asiento
+    4300004: R75 ballesta sidecar
+    4300006: R75 barra sillin delantero
+    4300008: R75 barra sillin trasero01
+    4300010: R75 barras sidecar
+    4300012: R75 bmw logo
+    4300014: R75 bmw logo01
+    4300016: R75 bolitas marchas
+    4300018: R75 cable
+    4300020: R75 cable 2
+    4300022: R75 CRISTAL CARRO
+    4300024: R75 CRISTAL CARRO2
+    4300026: R75 cristal cuentakilometros
+    4300028: R75 cristal faro
+    4300030: R75 cuentakilometros
+    4300032: R75 deposito
+    4300034: R75 faro
+    4300036: R75 faro carro
+    4300038: R75 faro carro2
+    4300040: R75 farointerior01
+    4300042: R75 freno delantero
+    4300044: R75 freno trasero
+    4300046: R75 guardabarros delantero
+    4300048: R75 guardabarros sidecar
+    4300050: R75 guardabarros trasero
+    4300052: R75 horqulla
+    4300054: R75 llanta
+    4300056: R75 llanta01
+    4300058: R75 llanta02
+    4300060: R75 llanta03
+    4300062: R75 maleta
+    4300064: R75 mangito sillin
+    4300066: R75 manillar
+    4300068: R75 marchas
+    4300070: R75 matricula delantera
+    4300072: R75 matricula delantera01
+    4300074: R75 matricula delantera02
+    4300076: R75 matricula trasera
+    4300078: R75 matricula trasera01
+    4300080: R75 mecanismo freno
+    4300082: R75 motor
+    4300084: R75 motor01
+    4300086: R75 muelle sillin
+    4300088: R75 neumatico delantero
+    4300090: R75 neumatico repuesto
+    4300092: R75 neumatico sidecar
+    4300094: R75 neumatico trasero
+    4300096: R75 palanca de aarranque
+    4300098: R75 pedal freno
+    4300100: R75 pieza rueda
+    4300102: R75 piezas motor
+    4300104: R75 piloto trasero01
+    4300110: R75 sidecar
+    4300112: R75 sillin delantero
+    4300114: R75 sillin trasero
+    4300116: R75 sujeta guardabarros
+    4300118: R75 sujeta guardabarros trasero
+    4300120: R75 tiangulo asiento rasero
+    4300122: R75 trasmision
+    4300124: R75 tubo de escape
+    4300126: R75 tubo gasolina
+    4300128: R75 tubo gasolina2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuestScenes/Zastava.unity
     guid: c9b42ee7af522e44aa48b5010caa51fc
+  - enabled: 1
+    path: Assets/Scenes/QuestScenes/Partizan.unity
+    guid: a0268d0cdefd91f44a9cb6a2704e9a96
   m_configObjects: {}

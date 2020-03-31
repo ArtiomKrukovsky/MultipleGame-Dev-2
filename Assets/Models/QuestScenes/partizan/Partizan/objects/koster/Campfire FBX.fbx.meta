@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: bded4e6063914d542bb3a78878990ee4
+timeCreated: 1582884965
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: areaLight1
+    100002: camera1
+    100004: Camp
+    100006: camp
+    100008: Camp_Fire
+    100010: //RootNode
+    100012: directionalLight1
+    100014: directionalLight2
+    100016: directionalLight3
+    100018: Fire_Woods
+    100020: Ground
+    100022: pointLight3
+    100024: Rocks
+    100026: rope_support_1
+    100028: rope_support_2
+    100030: rope_support_3
+    100032: rope_support_4
+    100034: utensil_and_rope
+    100036: woods_and_ground
+    400000: areaLight1
+    400002: camera1
+    400004: Camp
+    400006: camp
+    400008: Camp_Fire
+    400010: //RootNode
+    400012: directionalLight1
+    400014: directionalLight2
+    400016: directionalLight3
+    400018: Fire_Woods
+    400020: Ground
+    400022: pointLight3
+    400024: Rocks
+    400026: rope_support_1
+    400028: rope_support_2
+    400030: rope_support_3
+    400032: rope_support_4
+    400034: utensil_and_rope
+    400036: woods_and_ground
+    2300000: camp
+    2300002: Ground
+    2300004: Rocks
+    2300006: rope_support_1
+    2300008: rope_support_2
+    2300010: rope_support_3
+    2300012: rope_support_4
+    2300014: utensil_and_rope
+    2300016: woods_and_ground
+    3300000: camp
+    3300002: Ground
+    3300004: Rocks
+    3300006: rope_support_1
+    3300008: rope_support_2
+    3300010: rope_support_3
+    3300012: rope_support_4
+    3300014: utensil_and_rope
+    3300016: woods_and_ground
+    4300000: Ground
+    4300002: camp
+    4300004: rope_support_1
+    4300006: rope_support_2
+    4300008: rope_support_3
+    4300010: rope_support_4
+    4300012: woods_and_ground
+    4300014: Rocks
+    4300016: utensil_and_rope
+    6400000: camp
+    6400002: Ground
+    6400004: Rocks
+    6400006: rope_support_1
+    6400008: rope_support_2
+    6400010: rope_support_3
+    6400012: rope_support_4
+    6400014: utensil_and_rope
+    6400016: woods_and_ground
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
