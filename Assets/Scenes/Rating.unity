@@ -614,7 +614,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Return to menu
+  m_Text: "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 \u043D\u0430 \u043C\u0435\u043D\u044E"
 --- !u!222 &370875826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 317196625}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -850,7 +850,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Name of team
+  m_Text: "\u041A\u043E\u043C\u0430\u043D\u0434\u0430"
 --- !u!222 &506944952
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: "\u0421\u0447\u0451\u0442"
 --- !u!222 &1027180040
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1466,7 +1466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rating
+  m_Text: "\u0420\u0435\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &1173111632
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1665,7 +1665,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Map
+  m_Text: "\u041A\u0430\u0440\u0442\u0430"
 --- !u!222 &1843021502
 CanvasRenderer:
   m_ObjectHideFlags: 0

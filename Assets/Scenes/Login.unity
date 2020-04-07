@@ -278,7 +278,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 29
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -289,9 +289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sign up
-
-'
+  m_Text: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\n"
 --- !u!222 &267448789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1305,7 +1303,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Login
+  m_Text: "\u0412\u0445\u043E\u0434"
 --- !u!222 &1324615134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1382,7 +1380,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter login...
+  m_Text: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043B\u043E\u0433\u0438\u043D..."
 --- !u!222 &1437909037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1790,7 +1788,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter password...
+  m_Text: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C..."
 --- !u!222 &2010214577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1856,8 +1854,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
+    m_FontSize: 32
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -1867,9 +1865,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sign in
-
-'
+  m_Text: "\u0412\u0445\u043E\u0434\n"
 --- !u!222 &2073102225
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1953,7 +1949,7 @@ PrefabInstance:
     - target: {fileID: 988210271715391974, guid: dab7bb508da53e44484f38faa14bd63c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.50001526
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 988210271715391974, guid: dab7bb508da53e44484f38faa14bd63c,
         type: 3}
@@ -1999,6 +1995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 988210272111309338, guid: dab7bb508da53e44484f38faa14bd63c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.09991455
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dab7bb508da53e44484f38faa14bd63c, type: 3}

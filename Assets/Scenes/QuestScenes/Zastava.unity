@@ -14767,7 +14767,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '     EXIT TO LOBBY'
+  m_Text: "     \u0412\u042B\u0419\u0422\u0418 \u0412 \u041B\u041E\u0411\u0411\u0418"
 --- !u!222 &475335165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23182,7 +23182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '      RESUME'
+  m_Text: "      \u0412\u0415\u0420\u041D\u0423\u0422\u042C\u0421\u042F"
 --- !u!222 &785870806
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38288,7 +38288,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '     QUIT GAME'
+  m_Text: "     \u0412\u042B\u0419\u0422\u0418"
 --- !u!222 &1253683815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46783,7 +46783,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '     SETTINGS'
+  m_Text: "     \u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
 --- !u!222 &1557098408
 CanvasRenderer:
   m_ObjectHideFlags: 0
