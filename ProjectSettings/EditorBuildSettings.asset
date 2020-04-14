@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuestScenes/Hatin.unity
     guid: 5313afd5ea0bea64bab13a1a56783172
+  - enabled: 1
+    path: Assets/Scenes/QuestScenes/Museum.unity
+    guid: 4f4b731ef033c634c87a35bb8ea50356
   m_configObjects: {}
