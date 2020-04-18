@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RaycastScript : MonoBehaviour
 {
-    public float rayDistance = 3f;
+    public float rayDistance = 4f;
 
     internal static int _countOfAnswers = 0;
 
