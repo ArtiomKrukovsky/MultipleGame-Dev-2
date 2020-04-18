@@ -42,7 +42,7 @@ public class LobbyPopups : MonoBehaviour
         catch
         {
             foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
-            BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorTextComponent);
+            BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, попробуйте позже :(", foundErrorTextComponent);
             Debug.Log(BaseConstants.Messages.SomethingWentWrongMessage);
             return;
         }

@@ -23,7 +23,7 @@ public class Login : MonoBehaviour
                 Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
                 if (!login.text.Any() || !password.text.Any())
                 {
-                    BaseHelper.ShowMessageError("Password or username not entered", foundErrorObject);
+                    BaseHelper.ShowMessageError("Пароль или логин не введены", foundErrorObject);
                     Debug.LogWarning("Password or username not entered");
                     SceneLoading.SceneLoadingLogo();
                     return;
@@ -46,7 +46,7 @@ public class Login : MonoBehaviour
                 {
                     if (!reader.HasRows)
                     {
-                        BaseHelper.ShowMessageError("User with this login and password does not exist", foundErrorObject);
+                        BaseHelper.ShowMessageError("Пользователь с таким логином и паролем не существует", foundErrorObject);
                         Debug.LogWarning("User with this login not found!");
                         dbConnection.Close();
                         SceneLoading.SceneLoadingLogo();
@@ -61,7 +61,7 @@ public class Login : MonoBehaviour
 
                         if (passwordDbHash == null || inputHash != passwordDbHash)
                         {
-                            BaseHelper.ShowMessageError("User with this login and password does not exist", foundErrorObject);
+                            BaseHelper.ShowMessageError("Пользователь с таким логином и паролем не существует", foundErrorObject);
                             Debug.LogWarning("PasswordDbHash is incorrect");
                         }
                         else
@@ -81,7 +81,7 @@ public class Login : MonoBehaviour
             catch (Exception ex)
             {
                 Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
-                BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorObject);
+                BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, попробуйте позже :(", foundErrorObject);
                 Debug.LogWarning(ex.ToString());
                 ResetFields();
                 SceneLoading.SceneLoadingLogo();
