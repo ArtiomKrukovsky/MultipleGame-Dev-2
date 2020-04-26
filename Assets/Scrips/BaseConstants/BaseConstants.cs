@@ -4,6 +4,8 @@ public class BaseConstants : MonoBehaviour
 {
     public static string Network = "Network";
 
+    public static string ScoreText = "Quest score";
+
     public static partial class Prefs
     {
         public static string MapName = "MapName";

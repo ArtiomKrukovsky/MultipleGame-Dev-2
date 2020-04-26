@@ -33,13 +33,13 @@ public class RaycastScript : MonoBehaviour
                         Debug.Log("Correct answer");
                         this.DisableQuestObjects(hit);
                         IncreaseTeamScore();
-                        _countOfAnswers++;
+                        IncreaseTotalScoreAndUpdateQuestText();
                     }
                     else if (hit.transform.tag == "IncorrectAnswer")
                     {
                         Debug.Log("Incorrect answer");
                         this.DisableQuestObjects(hit);
-                        _countOfAnswers++;
+                        IncreaseTotalScoreAndUpdateQuestText();
                     }
                 }
             }
@@ -49,6 +49,12 @@ public class RaycastScript : MonoBehaviour
             Debug.Log($"Error on raycast script with exception: {ex.Message}");
         }
         
+    }
+
+    public static void IncreaseTotalScoreAndUpdateQuestText()
+    {
+        _countOfAnswers++;
+        ScoreController.UpdateQuestScore();
     }
 
     private void DisableQuestObjects(RaycastHit hit)

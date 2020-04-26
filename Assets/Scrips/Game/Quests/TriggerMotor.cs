@@ -39,7 +39,7 @@ public class TriggerMotor : NetworkBehaviour
         {
             return;
         }
-        RaycastScript._countOfAnswers++;
+        RaycastScript.IncreaseTotalScoreAndUpdateQuestText();
         questionPanel.SetActive(false);
         other.GetComponent<RaycastScript>().enabled = false;
         int number = Convert.ToInt32(gameObject.name.Substring(7));
