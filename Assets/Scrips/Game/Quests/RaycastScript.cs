@@ -8,7 +8,7 @@ public class RaycastScript : MonoBehaviour
 
     internal static int _countOfAnswers = 0;
 
-    private int _score = 0;
+    internal static int _score = 0;
 
     void Update()
     {
@@ -68,7 +68,7 @@ public class RaycastScript : MonoBehaviour
 
     private void IncreaseTeamScore()
     {
-        this._score++;
+        _score++;
     }
 
     private static bool? IsEndGame()

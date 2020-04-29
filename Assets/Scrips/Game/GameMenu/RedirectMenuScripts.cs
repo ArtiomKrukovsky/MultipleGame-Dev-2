@@ -67,6 +67,9 @@ public class RedirectMenuScripts : MonoBehaviour
                 SetParametersForLobbyMessage(score);
             }
 
+            RaycastScript._countOfAnswers = 0;
+            RaycastScript._score = 0;
+
             QuestParametersController._listQuestionActivate.Clear();
 
             if (!string.IsNullOrEmpty(serverName))
