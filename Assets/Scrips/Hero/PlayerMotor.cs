@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private Camera cam;
 
     private Rigidbody rb;
@@ -12,10 +12,17 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 rotation = Vector3.zero;
     private Vector3 rotationCamera = Vector3.zero;
 
+    private float r;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+
     }
 
     public void Move(Vector3 _velocity)
@@ -51,8 +58,12 @@ public class PlayerMotor : MonoBehaviour
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         if (cam != null)
-        { 
-            cam.transform.Rotate(-rotationCamera);
+        {
+            r += Input.GetAxis("Mouse Y");
+            r = Mathf.Clamp(r, -89, 89);
+            var euler = cam.transform.localEulerAngles;
+            euler.x = r;
+            cam.transform.localEulerAngles = -euler;
         }
     }
 }
