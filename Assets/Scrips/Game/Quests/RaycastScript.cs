@@ -29,14 +29,18 @@ public class RaycastScript : MonoBehaviour
                     {
                         Debug.Log("Correct answer");
                         this.DisableQuestObjects(hit);
-                        IncreaseTeamScore();
+                        _score++;
+
                         IncreaseTotalScoreAndUpdateQuestText();
+                        RepaintQuestionMarker(GetQuestionNumber(hit));
                     }
                     else if (hit.transform.tag == "IncorrectAnswer")
                     {
                         Debug.Log("Incorrect answer");
                         this.DisableQuestObjects(hit);
+
                         IncreaseTotalScoreAndUpdateQuestText();
+                        RepaintQuestionMarker(GetQuestionNumber(hit));
                     }
                 }
             }
@@ -45,7 +49,6 @@ public class RaycastScript : MonoBehaviour
         {
             Debug.Log($"Error on raycast script with exception: {ex.Message}");
         }
-        
     }
 
     public static void IncreaseTotalScoreAndUpdateQuestText()
@@ -62,18 +65,29 @@ public class RaycastScript : MonoBehaviour
         }
     }
 
+    public static void RepaintQuestionMarker(int number)
+    {
+        string markerName = BaseConstants.Marker + number;
+        GameObject marker = GameObject.Find($"Markers/{markerName}");
+
+        if (marker != null)
+        {
+            marker.GetComponent<Renderer>().material.color = Color.green;
+        }
+    }
+
     private void DisableQuestObjects(RaycastHit hit)
     {
         GameObject.Find("QuestionPanel").SetActive(false);
         hit.transform.parent.gameObject.SetActive(false);
 
-        var number = Convert.ToInt32(hit.transform.parent.name.Substring(8));
+        var number = GetQuestionNumber(hit);
         GameObject.Find("Trigger" + number).GetComponent<BoxCollider>().enabled = false;
     }
 
-    private void IncreaseTeamScore()
+    private int GetQuestionNumber(RaycastHit hit)
     {
-        _score++;
+        return Convert.ToInt32(hit.transform.parent.name.Substring(8));
     }
 
     private static bool? IsEndGame()

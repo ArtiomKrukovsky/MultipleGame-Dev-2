@@ -6,6 +6,8 @@ public class BaseConstants : MonoBehaviour
 
     public static string ScoreText = "Quest score";
 
+    public static string Marker = "Marker";
+
     public static partial class Prefs
     {
         public static string MapName = "MapName";
