@@ -13,13 +13,24 @@ public class RedirectMenuScripts : MonoBehaviour
         networkManager.matchMaker.ListMatches(0, 20, "", true, 0, 0, networkManager.OnMatchList);
     }
 
-    public void OpenSettings()
+    public void ReturnToGame()
     {
+        var gameMenuPopup = BaseHelper.FindObjectByTag("GameMenu").transform.GetChild(0).gameObject;
+
+        Cursor.visible = false;
+        var player = BaseHelper.FindObjectByTag("Player1").transform.gameObject;
+        player.GetComponent<PlayerMotor>().enabled = true;
+        gameMenuPopup.SetActive(false);
     }
 
     public void RedirectToMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void RedirectToSupport()
+    {
+        SceneManager.LoadScene("Support");
     }
 
     public void RedirectToLobby()
