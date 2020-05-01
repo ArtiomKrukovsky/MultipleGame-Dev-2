@@ -14,10 +14,7 @@ public class RaycastScript : MonoBehaviour
     {
         try
         {
-            if ((IsEndGame() ?? false) && QuestParametersController._listQuestionActivate.Count == _countOfAnswers)
-            {
-                RedirectMenuScripts.LeaveServer(true, _score);
-            }
+            FinishTheQuest();
 
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -55,6 +52,14 @@ public class RaycastScript : MonoBehaviour
     {
         _countOfAnswers++;
         ScoreController.UpdateQuestScore();
+    }
+
+    public static void FinishTheQuest()
+    {
+        if ((IsEndGame() ?? false) && QuestParametersController._listQuestionActivate.Count == _countOfAnswers)
+        {
+            RedirectMenuScripts.LeaveServer(true, _score);
+        }
     }
 
     private void DisableQuestObjects(RaycastHit hit)

@@ -50,5 +50,7 @@ public class TriggerMotor : NetworkBehaviour
         }
 
         gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        RaycastScript.FinishTheQuest();
     }
 }
