@@ -2,7 +2,8 @@
 
 public class BuildingProcessor : MonoBehaviour
 {
-    public float startRotation;
+    public float startRotationX = 0;
+    public float startRotationY;
 
     public GameObject createLobbyPopup;
 
@@ -27,7 +28,7 @@ public class BuildingProcessor : MonoBehaviour
 
     private void OnMouseExit()
     {
-        transform.rotation = Quaternion.Euler(0, startRotation, 0);
+        transform.rotation = Quaternion.Euler(startRotationX, startRotationY, 0);
 
         _isRotate = false;
         transform.localScale = new Vector3(transform.localScale.x - 0.15f, transform.localScale.y - 0.15f, transform.localScale.z - 0.15f);

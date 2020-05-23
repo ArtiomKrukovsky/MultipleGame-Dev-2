@@ -31,6 +31,9 @@ public class JoinMatch : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        //made to disable the ability to connect to the server
+        return;
+
         var matchName = this.GetComponentInChildren<Text>().text;
         JoinToMatch(matchName);
         Debug.Log("User join to match!");

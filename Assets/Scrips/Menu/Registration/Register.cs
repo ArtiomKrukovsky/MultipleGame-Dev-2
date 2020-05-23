@@ -26,7 +26,7 @@ public class Register : MonoBehaviour
                 Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
                 if (!login.text.Any() || !password.text.Any())
                 {
-                    BaseHelper.ShowMessageError("Password or username not entered", foundErrorObject);
+                    BaseHelper.ShowMessageError("Пароль или логин не введены", foundErrorObject);
                     Debug.LogWarning("Password or username not entered");
                     SceneLoading.SceneLoadingLogo();
                     return;
@@ -34,7 +34,7 @@ public class Register : MonoBehaviour
 
                 if (!IsLoginValid(login.text) || !IsPasswordValid(password.text))
                 {
-                    BaseHelper.ShowMessageError("This login or password is incorrect", foundErrorObject);
+                    BaseHelper.ShowMessageError("Логин или пароль введены неверно", foundErrorObject);
                     Debug.LogWarning("This login or password is incorrect");
                     SceneLoading.SceneLoadingLogo();
                     return;
@@ -56,7 +56,7 @@ public class Register : MonoBehaviour
                 {
                     if (reader.HasRows)
                     {
-                        BaseHelper.ShowMessageError("User with this login is exist", foundErrorObject);
+                        BaseHelper.ShowMessageError("Пользователь с таким логинов уже существует", foundErrorObject);
                         Debug.LogWarning("User with this login is exist");
                         SceneLoading.SceneLoadingLogo();
                         return;
@@ -90,7 +90,7 @@ public class Register : MonoBehaviour
             catch (Exception ex)
             {
                 Text foundErrorObject = BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
-                BaseHelper.ShowMessageError("Oooppss, something went wrong, try later :(", foundErrorObject);
+                BaseHelper.ShowMessageError("Уппсс, что-то пошло не так, попробуйте снова :(", foundErrorObject);
                 ResetFields();
                 dbConnection.Close();
                 SceneLoading.SceneLoadingLogo();

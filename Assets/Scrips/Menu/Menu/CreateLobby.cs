@@ -25,7 +25,7 @@ public class CreateLobby : MonoBehaviour
 
             if (!serverName.text.Any())
             {
-                BaseHelper.ShowMessageError("Please, enter name of server", foundErrorTextComponent);
+                BaseHelper.ShowMessageError("Пожалуйтса введите имя сервера", foundErrorTextComponent);
                 SceneLoading.SceneLoadingLogo();
                 return;
             }
@@ -72,7 +72,7 @@ public class CreateLobby : MonoBehaviour
                 {
                     if (reader.HasRows)
                     {
-                        BaseHelper.ShowMessageError("Server with this name is already exist", foundErrorTextComponent);
+                        BaseHelper.ShowMessageError("Сервер с таким именем уже существует", foundErrorTextComponent);
                         SceneLoading.SceneLoadingLogo();
                         return;
                     }
@@ -102,7 +102,7 @@ public class CreateLobby : MonoBehaviour
         catch(Exception e)
         {
             foundErrorTextComponent = foundErrorTextComponent ?? BaseHelper.FindObjectByTag(BaseConstants.Messages.ErrorMessage).GetComponent<Text>();
-            BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, try later :(", foundErrorTextComponent);
+            BaseHelper.ShowMessageError($"{BaseConstants.Messages.SomethingWentWrongMessage}, попробуйте позже :(", foundErrorTextComponent);
             Debug.Log($"{BaseConstants.Messages.SomethingWentWrongMessage} { e.Message }");
             SceneLoading.SceneLoadingLogo();
             SceneManager.LoadScene("Menu");

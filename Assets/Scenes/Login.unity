@@ -278,8 +278,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
+    m_FontSize: 27
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -289,9 +289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sign up
-
-'
+  m_Text: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\n"
 --- !u!222 &267448789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -382,13 +380,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 460460675}
   m_TextComponent: {fileID: 919408449}
   m_Placeholder: {fileID: 1437909036}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -494,7 +492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 76ec3cd885b8a2e4c918706d8a408ac6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5136ffe694815846b8ad7530c5b7e9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1077,8 +1075,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 987954920}
   m_TextComponent: {fileID: 1777203167}
   m_Placeholder: {fileID: 2010214576}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1271,8 +1269,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 204}
-  m_SizeDelta: {x: 307.5, y: 61.4}
+  m_AnchoredPosition: {x: -3, y: 194.35}
+  m_SizeDelta: {x: 329.1, y: 80.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1324615133
 MonoBehaviour:
@@ -1294,18 +1292,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 64
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 48
-    m_Alignment: 1
+    m_MaxSize: 64
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Login
+  m_Text: "\u0412\u0445\u043E\u0434"
 --- !u!222 &1324615134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1382,7 +1380,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter login...
+  m_Text: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 e-mail..."
 --- !u!222 &1437909037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1790,7 +1788,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter password...
+  m_Text: "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C..."
 --- !u!222 &2010214577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1856,20 +1854,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
+    m_FontSize: 33
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sign in
-
-'
+  m_Text: "\u0412\u0445\u043E\u0434\n"
 --- !u!222 &2073102225
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1953,7 +1949,7 @@ PrefabInstance:
     - target: {fileID: 988210271715391974, guid: dab7bb508da53e44484f38faa14bd63c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.50001526
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 988210271715391974, guid: dab7bb508da53e44484f38faa14bd63c,
         type: 3}
@@ -1999,6 +1995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 988210272111309338, guid: dab7bb508da53e44484f38faa14bd63c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.09991455
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dab7bb508da53e44484f38faa14bd63c, type: 3}

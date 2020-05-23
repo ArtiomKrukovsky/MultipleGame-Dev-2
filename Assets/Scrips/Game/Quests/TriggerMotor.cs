@@ -39,9 +39,12 @@ public class TriggerMotor : NetworkBehaviour
         {
             return;
         }
-        RaycastScript._countOfAnswers++;
+
+        RaycastScript.IncreaseTotalScoreAndUpdateQuestText();
+
         questionPanel.SetActive(false);
         other.GetComponent<RaycastScript>().enabled = false;
+
         int number = Convert.ToInt32(gameObject.name.Substring(7));
         var answers = masAnswers.transform.Find("Question" + number);
         foreach (Transform answer in answers)
@@ -50,5 +53,8 @@ public class TriggerMotor : NetworkBehaviour
         }
 
         gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        RaycastScript.RepaintQuestionMarker(number);
+        RaycastScript.FinishTheQuest();
     }
 }

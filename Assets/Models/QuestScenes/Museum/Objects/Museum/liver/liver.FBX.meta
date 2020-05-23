@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: a8da8941a02a2774a80901780a31623e
+timeCreated: 1586782731
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box06
+    100002: Box07
+    100004: Box08
+    100006: Box09
+    100008: Box10
+    100010: ChamferCyl
+    100012: Cylinder10
+    100014: Cylinder11
+    100016: Cylinder12
+    100018: Line14
+    100020: Line15
+    100022: Line17
+    100024: Line18
+    100026: //RootNode
+    100028: Object02
+    100030: Tube05
+    100032: Tube05_MeshPart0
+    100034: Tube05_MeshPart1
+    100036: Tube06
+    100038: Tube07
+    100040: Tube08
+    400000: Box06
+    400002: Box07
+    400004: Box08
+    400006: Box09
+    400008: Box10
+    400010: ChamferCyl
+    400012: Cylinder10
+    400014: Cylinder11
+    400016: Cylinder12
+    400018: Line14
+    400020: Line15
+    400022: Line17
+    400024: Line18
+    400026: //RootNode
+    400028: Object02
+    400030: Tube05
+    400032: Tube05_MeshPart0
+    400034: Tube05_MeshPart1
+    400036: Tube06
+    400038: Tube07
+    400040: Tube08
+    2300000: Box06
+    2300002: Box07
+    2300004: Box08
+    2300006: Box09
+    2300008: Box10
+    2300010: ChamferCyl
+    2300012: Cylinder10
+    2300014: Cylinder11
+    2300016: Cylinder12
+    2300018: Line14
+    2300020: Line15
+    2300022: Line17
+    2300024: Line18
+    2300026: Object02
+    2300028: Tube05_MeshPart0
+    2300030: Tube05_MeshPart1
+    2300032: Tube06
+    2300034: Tube07
+    2300036: Tube08
+    3300000: Box06
+    3300002: Box07
+    3300004: Box08
+    3300006: Box09
+    3300008: Box10
+    3300010: ChamferCyl
+    3300012: Cylinder10
+    3300014: Cylinder11
+    3300016: Cylinder12
+    3300018: Line14
+    3300020: Line15
+    3300022: Line17
+    3300024: Line18
+    3300026: Object02
+    3300028: Tube05_MeshPart0
+    3300030: Tube05_MeshPart1
+    3300032: Tube06
+    3300034: Tube07
+    3300036: Tube08
+    4300000: Cylinder12
+    4300002: Line18
+    4300004: Line17
+    4300006: Cylinder11
+    4300008: Tube08
+    4300010: Box10
+    4300012: Tube07
+    4300014: Box09
+    4300016: Box08
+    4300018: Box07
+    4300020: Tube06
+    4300022: Object02
+    4300024: Line15
+    4300026: ChamferCyl
+    4300028: Line14
+    4300030: Tube05_MeshPart0
+    4300032: Tube05_MeshPart1
+    4300034: Cylinder10
+    4300036: Box06
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

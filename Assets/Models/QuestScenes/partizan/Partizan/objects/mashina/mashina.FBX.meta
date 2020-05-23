@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: f420db4ed04bb344187b4d56637a5c9c
+timeCreated: 1584887554
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: L3000_Back License
+    100002: L3000_Back Lights
+    100004: L3000_Back Seats
+    100006: L3000_Black Matte
+    100008: L3000_Bumper
+    100010: L3000_Cap Cloth
+    100012: L3000_Chassis
+    100014: L3000_Chrome Metal
+    100016: L3000_Foot
+    100018: L3000_Front License
+    100020: L3000_Front Motor
+    100022: L3000_Main Metal
+    100024: L3000_Mercedes&Details
+    100026: L3000_Motor
+    100028: L3000_Motor Cap
+    100030: L3000_Motor Cap 1
+    100032: L3000_Old Metal
+    100034: L3000_Painted Wood
+    100036: L3000_Pilot Seat
+    100038: L3000_Steering Wheel
+    100040: L3000_Suspension
+    100042: L3000_Wheels
+    100044: L3000_White Horse02
+    100046: L3000_White Horse02_MeshPart0
+    100048: L3000_White Horse02_MeshPart1
+    100050: L3000_Windows
+    100052: //RootNode
+    400000: L3000_Back License
+    400002: L3000_Back Lights
+    400004: L3000_Back Seats
+    400006: L3000_Black Matte
+    400008: L3000_Bumper
+    400010: L3000_Cap Cloth
+    400012: L3000_Chassis
+    400014: L3000_Chrome Metal
+    400016: L3000_Foot
+    400018: L3000_Front License
+    400020: L3000_Front Motor
+    400022: L3000_Main Metal
+    400024: L3000_Mercedes&Details
+    400026: L3000_Motor
+    400028: L3000_Motor Cap
+    400030: L3000_Motor Cap 1
+    400032: L3000_Old Metal
+    400034: L3000_Painted Wood
+    400036: L3000_Pilot Seat
+    400038: L3000_Steering Wheel
+    400040: L3000_Suspension
+    400042: L3000_Wheels
+    400044: L3000_White Horse02
+    400046: L3000_White Horse02_MeshPart0
+    400048: L3000_White Horse02_MeshPart1
+    400050: L3000_Windows
+    400052: //RootNode
+    2300000: L3000_Back License
+    2300002: L3000_Back Lights
+    2300004: L3000_Back Seats
+    2300006: L3000_Black Matte
+    2300008: L3000_Bumper
+    2300010: L3000_Cap Cloth
+    2300012: L3000_Chassis
+    2300014: L3000_Chrome Metal
+    2300016: L3000_Foot
+    2300018: L3000_Front License
+    2300020: L3000_Front Motor
+    2300022: L3000_Main Metal
+    2300024: L3000_Mercedes&Details
+    2300026: L3000_Motor
+    2300028: L3000_Motor Cap
+    2300030: L3000_Motor Cap 1
+    2300032: L3000_Old Metal
+    2300034: L3000_Painted Wood
+    2300036: L3000_Pilot Seat
+    2300038: L3000_Steering Wheel
+    2300040: L3000_Suspension
+    2300042: L3000_Wheels
+    2300044: L3000_White Horse02_MeshPart0
+    2300046: L3000_White Horse02_MeshPart1
+    2300048: L3000_Windows
+    3300000: L3000_Back License
+    3300002: L3000_Back Lights
+    3300004: L3000_Back Seats
+    3300006: L3000_Black Matte
+    3300008: L3000_Bumper
+    3300010: L3000_Cap Cloth
+    3300012: L3000_Chassis
+    3300014: L3000_Chrome Metal
+    3300016: L3000_Foot
+    3300018: L3000_Front License
+    3300020: L3000_Front Motor
+    3300022: L3000_Main Metal
+    3300024: L3000_Mercedes&Details
+    3300026: L3000_Motor
+    3300028: L3000_Motor Cap
+    3300030: L3000_Motor Cap 1
+    3300032: L3000_Old Metal
+    3300034: L3000_Painted Wood
+    3300036: L3000_Pilot Seat
+    3300038: L3000_Steering Wheel
+    3300040: L3000_Suspension
+    3300042: L3000_Wheels
+    3300044: L3000_White Horse02_MeshPart0
+    3300046: L3000_White Horse02_MeshPart1
+    3300048: L3000_Windows
+    4300000: L3000_Motor
+    4300002: L3000_Back License
+    4300004: L3000_Main Metal
+    4300006: L3000_Motor Cap
+    4300008: L3000_Steering Wheel
+    4300010: L3000_Pilot Seat
+    4300012: L3000_Old Metal
+    4300014: L3000_Front License
+    4300016: L3000_Motor Cap
+    4300018: L3000_Back Lights
+    4300020: L3000_Back Seats
+    4300022: L3000_Front Motor
+    4300024: L3000_White Horse02_MeshPart0
+    4300026: L3000_White Horse02_MeshPart1
+    4300028: L3000_Painted Wood
+    4300030: L3000_Suspension
+    4300032: L3000_Foot
+    4300034: L3000_Chrome Metal
+    4300036: L3000_Chassis
+    4300038: L3000_Cap Cloth
+    4300040: L3000_Bumper
+    4300042: L3000_Black Matte
+    4300044: L3000_Wheels
+    4300046: L3000_Windows
+    4300048: L3000_Mercedes&Details
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
