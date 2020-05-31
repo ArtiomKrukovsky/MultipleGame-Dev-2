@@ -6,9 +6,9 @@ using UnityEngine;
 
 public static class DbHelper
 {
-    public const string ConnectionString = "Data Source=SQL5052.site4now.net;" +
-                                           "Initial Catalog=DB_A570C1_broadwood2;" +
-                                           "User Id=DB_A570C1_broadwood2_admin;" +
+    public const string ConnectionString = "Data Source=SQL5045.site4now.net;" +
+                                           "Initial Catalog=DB_A62461_broadwood3;" +
+                                           "User Id=DB_A62461_broadwood3_admin;" +
                                            "Password=qwe123ZXC.;";
 
     public static void DeleteServerFromDB(string serverNameToDelete)
